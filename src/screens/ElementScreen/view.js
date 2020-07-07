@@ -28,10 +28,10 @@ const ElementScreen = ({ isLoading }) => {
       <Box m={3} display='flex' flexDirection='column'>
         <Box m={2} display='flex' flexDirection='column'  justifyContent='flex-start' >
           <Box display='flex' flexDirection='row'  justifyContent='flex-start' >
-            <Button>Origin Button</Button>
-            <FlatButton>Flat Button</FlatButton>
-            <LineButton>Line Button</LineButton>
-            <TextButton color='secondary'>Text Button</TextButton>
+            <Button text='Origin Button'/>
+            <FlatButton text='Flat Button' />
+            <LineButton text='Line Button' />
+            <TextButton color='secondary' text='Text Button' />
           </Box>
           <DateRange onDateChange={()=>{}} />
           <Selector defaultValue={1} value={1} datas={[]} />
@@ -44,7 +44,7 @@ const ElementScreen = ({ isLoading }) => {
         <Box m={2} p={2}>
           <Table
             title='Example Table'
-            rightTitle={<Button> Export Action </Button>}
+            rightTitle={<Button text='Export Action' />}
             headers={Object.keys(tableDatas[0])}
             children={
               tableDatas.map(row=> (

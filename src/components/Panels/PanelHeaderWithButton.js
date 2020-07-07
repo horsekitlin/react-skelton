@@ -50,13 +50,12 @@ const PanelHeaderWithButton = ({
     </Typography>
     <div className={classes.buttonZone}>
       <Button
+        text={btnText}
         hide={hideButton}
         color='primary'
         className={classes.button}
         onClick={onClick}
-      >
-        {btnText}
-      </Button>
+      />
     </div>
   </div>
 );

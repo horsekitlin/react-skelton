@@ -189,9 +189,7 @@ class SidebarMenuItem extends React.Component {
           <Collapse in={openParent} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               {items.map(item => {
-              console.log("SidebarMenuItem -> render -> item", item)
                 const hasPermission = permissions.getIn([item.permissionId, item.permissionType]);
-                console.log("SidebarMenuItem -> render -> hasPermission", hasPermission)
                 if (!hasPermission) return <Fragment />;
                 return (
                   <ListItem

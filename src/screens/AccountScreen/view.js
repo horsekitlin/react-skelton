@@ -3,9 +3,10 @@ import {
   Box,
   TableRow,
 } from '@material-ui/core';
+import AddIcon from "@material-ui/icons/Add";
 import Table from '../../components/Table';
-import TableCell from '../../components/TableCell';
 import Button from '../../components/Buttons';
+import TableCell from '../../components/TableCell';
 
 
 const AccountScreen = (props) => {
@@ -30,7 +31,7 @@ const AccountScreen = (props) => {
     <Box m={3} display='flex' flexDirection='column'>
       <Table
         title='AccountScreen'
-        rightTitle={<Button> Export Action </Button>}
+        rightTitle={<Button text='新增账号' startIcon={<AddIcon/>} />}
         headers={headers}
         children={
           datas.map(row=> (

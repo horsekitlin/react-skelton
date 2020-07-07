@@ -1,6 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core";
 import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from "@material-ui/core/DialogContent";
 import CheckIcon from "@material-ui/icons/Check";
 import WarningIcon from "@material-ui/icons/Warning";
@@ -67,6 +68,7 @@ const style = theme => ({
 });
 
 const DialogWrapper = ({
+  title='',
   classes,
   children,
   onConfirm,
@@ -91,6 +93,7 @@ const DialogWrapper = ({
       className={classes.dialog}
       {...props}
     >
+      <DialogTitle id="simple-dialog-title">{title}</DialogTitle>
       <DialogContent className={classes.dialogContent}>
         <Icon className={classNames(classes[level], classes.icon)} />
         <div>{children}</div>
@@ -101,12 +104,11 @@ const DialogWrapper = ({
         </Button>
         <Button
           hide={mode !== "ask"}
+          text={cancelText}
           color='secondary'
           className={classes.button}
           onClick={onCancel}
-        >
-          {cancelText}
-        </Button>
+        />
       </div>
     </Dialog>
   );
