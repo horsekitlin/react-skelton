@@ -40,7 +40,7 @@ const theme = createMuiTheme({
   },
   palette: AppColors,
   shape: {
-    borderRadius: 2
+    borderRadius: 4
   },
   oshadows: [
     "none",

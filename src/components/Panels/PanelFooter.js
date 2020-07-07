@@ -10,7 +10,9 @@ const styles = theme => ({
     paddingBottom: 15,
     paddingLeft: 22,
     paddingRight: 22,
-    position: 'relative'
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'space-between'
   }
 })
 
