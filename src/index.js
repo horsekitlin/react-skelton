@@ -5,18 +5,15 @@ import { Provider } from 'react-redux'
 import * as serviceWorker from './registerServiceWorker';
 import 'reset-css';
 import "react-datepicker/dist/react-datepicker.css";
-import { StateInspector } from "reinspect";
 import reduxStore from './store/configureStore'
 import MainScreen from './screens/MainScreen';
 
 const rootEl = document.getElementById('root');
-const renderer = new WebGLRenderer({antialias: true})
+const renderer = new WebGLRenderer({ antialias: true })
 
 ReactDOM.render(
   <Provider store={reduxStore}  >
-    <StateInspector name='react-skeleton'>
-      <MainScreen />
-    </StateInspector>
+    <MainScreen />
   </Provider>
   , rootEl
 );

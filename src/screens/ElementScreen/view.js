@@ -47,8 +47,8 @@ const ElementScreen = ({ isLoading }) => {
             rightTitle={<Button> Export Action </Button>}
             headers={Object.keys(tableDatas[0])}
             children={
-              tableDatas.map(row=> (
-                <TableRow>
+              tableDatas.map((row, index)=> (
+                <TableRow key={`${row.id}-${index}`}>
                   <TableCell>{row.id}</TableCell>
                   <TableCell>{(row.numeric)? 'Y': 'N'}</TableCell>
                   <TableCell>{(row.disablePadding)? 'Y': 'N'}</TableCell>

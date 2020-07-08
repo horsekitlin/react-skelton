@@ -61,8 +61,8 @@ const Table = ({
           <BasicTable>
             <TableHead>
               <TableRow>
-                  {headers.map(title=> 
-                    <StyledHeader>{title}</StyledHeader>
+                  {headers.map((title, index)=> 
+                    <StyledHeader key={`${title}-${index}`}>{title}</StyledHeader>
                   )}
               </TableRow>
             </TableHead>
@@ -71,7 +71,7 @@ const Table = ({
         </Box>
         <Box m={2} display='flex' flexDirection='row' justifyContent='flex-end' alignItems='center'>
           <Pagination count={10} page={1} shape="rounded" onChange={handleChangePage} />
-          <Typography fontSize='h6.fontSize' textAlign='right'>
+          <Typography fontSize='h6.fontSize'>
             共 {totalCount} 笔
           </Typography>
           <StyledPageSelector

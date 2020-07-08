@@ -33,8 +33,8 @@ const AccountScreen = (props) => {
         rightTitle={<Button> Export Action </Button>}
         headers={headers}
         children={
-          datas.map(row=> (
-            <TableRow>
+          datas.map((row, index)=> (
+            <TableRow key={`${row.name}-${index}`}>
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.role}</TableCell>
               <TableCell>{row.status}</TableCell>

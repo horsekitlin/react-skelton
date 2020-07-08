@@ -1,48 +1,51 @@
 import { fromJS } from 'immutable';
-import { createBrowserHistory } from 'history';
+import { getLoginUser } from '../store/localStorage';
+import isEmpty from 'lodash/isEmpty';
 
-const history = createBrowserHistory();
-
-export const userState = fromJS({
-  login: {
-    ok: true
-  }
-});
-
-export const authState = fromJS({
-  isAuth: true,
+const DEFAULT_USER = {
   info: {
-    employeeName: 'administrator',
-    roleName: 'admin',
+    employeeName: '',
+    roleName: '',
   },
   permissions: {
-    'elements': {
-      'read': true,
-      'add': true,
-      'update': true,
-      'delete': true,
+    elements: {
+      read: false,
+      add: false,
+      update: false,
+      delete: false,
     },
-    'settings': {
-      'read': true,
-      'add': false,
-      'update': false,
-      'delete': false,
+    settings: {
+      read: false,
+      add: false,
+      update: false,
+      delete: false,
     },
-    'accounts': {
-      'read': true,
-      'add': false,
-      'update': false,
-      'delete': false,
+    accounts: {
+      read: false,
+      add: false,
+      update: false,
+      delete: false,
     },
-    'roles': {
-      'read': true,
-      'add': false,
-      'update': false,
-      'delete': false,
+    roles: {
+      read: false,
+      add: false,
+      update: false,
+      delete: false,
     },
   },
+};
+
+const user = getLoginUser();
+const isAuth = !isEmpty(user);
+const userData = isEmpty(user)
+  ? DEFAULT_USER
+  : user;
+
+export const authState = fromJS({
+  isAuth,
   isInitial: false,
-  loginErrorMsg: ''
+  loginErrorMsg: '',
+  ...userData,
 });
 
 export const settingState = fromJS({
@@ -63,7 +66,3 @@ export const navState = fromJS({
   watchedMenu: '',
   alertType: ''
 });
-
-export const routeState = {
-  history
-};

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Provider } from 'react-redux'
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import PrivateRoute from '../../components/PrivateRoute';
 import PublicRoute from '../../components/PublicRoute';
@@ -12,7 +11,6 @@ import AccountScreen from '../AccountScreen';
 import RoleScreen from '../RoleScreen';
 import ErrorBoundary from '../../components/ErrorBoundary';
 import { AppColors } from '../../constants/colors.config';
-// import reduxStore from '../../store/configureStore';
 import LayoutWrapper from '../../components/LayoutWrapper';
 
 const theme = createMuiTheme({
@@ -55,6 +53,7 @@ const theme = createMuiTheme({
 });
 
 const MainScreen = (props) => {
+  const { isAuth } = props;
   const [, setInitApp] = useState(false);
 
   useEffect(() => {
@@ -64,25 +63,32 @@ const MainScreen = (props) => {
   return (
     <MuiThemeProvider theme={theme}>
       {/* ErrorBoundary had already in LayoutWrapper, not sure whether should put again or not? */}
-      <ErrorBoundary> 
+      <ErrorBoundary>
         <Router>
           <LayoutWrapper>
             <Switch>
-              <PublicRoute exact path='/login' component={LoginScreen} />
-              <PrivateRoute exact path='/' component={HomeScreen} />
+              <PublicRoute exact isAuth={isAuth} path='/login' component={LoginScreen} />
               <PrivateRoute
                 exact
-                 path='/elements'
+                path='/'
+                isAuth={isAuth}
+                component={HomeScreen} />
+              <PrivateRoute
+                exact
+                path='/elements'
+                isAuth={isAuth}
                 component={ElementScreen}
               />
               <PrivateRoute
                 exact
-                 path='/system/account'
+                path='/system/account'
+                isAuth={isAuth}
                 component={AccountScreen}
               />
               <PrivateRoute
                 exact
-                 path='/system/role'
+                path='/system/role'
+                isAuth={isAuth}
                 component={RoleScreen}
               />
               <Route exact component={ErrorPage} />

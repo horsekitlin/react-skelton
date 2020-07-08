@@ -6,9 +6,8 @@ const loginSuccess = (auth, payload) =>
   auth.merge(
     fromJS({
       isAuth: true,
-      info: payload.user,
       loginErrorMsg: "",
-      permissions: []
+      ...payload,
     })
   );
 

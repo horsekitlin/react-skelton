@@ -11,9 +11,11 @@ const defaultData = [
 const Selector = ({ datas, ...props}) => {
   return (
     <Select {...props} >
-    {datas.map(data => (
-      <MenuItem value={data.value}>{data.text}</MenuItem>
-    ))}
+    {datas.map((data, index) => {
+      return (
+        <MenuItem value={data.value} key={`${data.text}-${index}`}>{data.text}</MenuItem>
+      )
+    })}
     </Select>
   );
 };

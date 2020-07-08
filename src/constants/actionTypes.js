@@ -1,8 +1,9 @@
 import constants from 'flux-constants';
 
 const syncActionTypes = [
-  'LOGOUT',
-  'HANDLE_SIDEBAR'
+  'START_FETCHING',
+  'STOP_FETCHING',
+  'HANDLE_SIDEBAR',
 ];
 
 const layoutActionTypes = [
@@ -20,14 +21,14 @@ export const basicAsyncActionTypes = [
   'REFRESH_TOKEN'
 ];
 
-const asyncActionTypes = basicAsyncActionTypes.reduce((result, actionTypes)=>{
+const asyncActionTypes = basicAsyncActionTypes.reduce((result, actionType)=>{
   return [
     ...result,
-    actionTypes,
-    `${actionTypes}_SUCCESS`,
-    `${actionTypes}_ERROR`,
+    actionType,
+    `${actionType}_SUCCESS`,
+    `${actionType}_ERROR`,
   ];
-});
+}, []);
 
 export default constants([
   ...syncActionTypes,

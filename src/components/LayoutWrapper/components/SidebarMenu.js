@@ -3,7 +3,7 @@ import { List } from '@material-ui/core';
 import SidebarMenuItem from './SidebarMenuItem';
 import routerConfig from '../../../constants/router.config';
 
-class SidebarMenu extends React.Component {
+class SidebarMenu extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +21,7 @@ class SidebarMenu extends React.Component {
 
     return (
       <List>
-        {routerConfig.map(menuItem => {
+        {routerConfig.map((menuItem, index) => {
           const {
             id,
             icon,
@@ -35,11 +35,11 @@ class SidebarMenu extends React.Component {
 
           const hasPermission = permissions.getIn([permissionId, permissionType]) || permissionId === 'default';
 
-        if(!hasPermission || hide) return <Fragment />
+        if(!hasPermission || hide) return <Fragment key={`${id}-${index}`} />
 
         return (
           <SidebarMenuItem
-            key={id}
+            key={`${id}-${index}`}
             id={id}
             path={path}
             items={children}

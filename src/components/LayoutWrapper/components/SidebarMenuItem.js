@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import classNames from 'classnames';
 import ChevronRight from '@material-ui/icons/ChevronRight';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ListItem, ListItemIcon, ListItemText, Collapse, List, withStyles } from '@material-ui/core';
 import Colors from '../../../constants/colors.config'
 import ReduxStore from '../../../store/configureStore';
@@ -15,7 +15,7 @@ const styles = theme => ({
     color: Colors.bodybg
   },
   listItem: {
-    fontWeight:'inherit',
+    fontWeight: 'inherit',
     color: '#808080',
   },
   nested: {
@@ -27,7 +27,7 @@ const styles = theme => ({
     }),
     '& p': {
       color: Colors.greymiddle,
-      fontWeight:'100 !important',
+      fontWeight: '100 !important',
       fontSize: '18px',
     }
   },
@@ -74,15 +74,15 @@ const styles = theme => ({
   },
   parentItem: {
     '& span': {
-      fontWeight:'100 !important',
+      fontWeight: '100 !important',
     }
   },
   parentItemActive: {
     borderLeft: `3px solid ${Colors.primary}`,
-    backgroundColor: Colors.menubgdark,    
-  },  
+    backgroundColor: Colors.menubgdark,
+  },
   nestText: {
-    fontWeight:'100 !important',
+    fontWeight: '100 !important',
     marginLeft: 40,
     '& p': {
       fontFamily: [
@@ -106,7 +106,7 @@ const styles = theme => ({
   },
   itemIcon: {
     color: Colors.greymiddle,
-    width:  theme.spacing(3),
+    width: theme.spacing(3),
     margin: 0
   },
   itemIconActive: {
@@ -114,7 +114,7 @@ const styles = theme => ({
   }
 });
 
-class SidebarMenuItem extends React.Component {
+class SidebarMenuItem extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -141,14 +141,14 @@ class SidebarMenuItem extends React.Component {
         <ListItemIcon
           children={parentIcon}
           className={classNames(classes.parentIcon, {
-          [classes.parentIconActive]: openParent
+            [classes.parentIconActive]: openParent
           })}
         />
         <ListItemText
-          inset 
+          inset
           primary={parentText}
           className={classNames(classes.parentText, {
-          [classes.parentTextActive]: openParent
+            [classes.parentTextActive]: openParent
           })}
         />
       </Fragment>
@@ -160,8 +160,8 @@ class SidebarMenuItem extends React.Component {
         key={parentText}
         to={path}
         component={Link}
-        onClick={this.handleParentClick(id)} 
-        color="inherit" 
+        onClick={this.handleParentClick(id)}
+        color="inherit"
         className={classNames(classes.parentItem, {
           [classes.parentItemActive]: openParent
         })}
@@ -171,43 +171,45 @@ class SidebarMenuItem extends React.Component {
     );
 
     return (
-      hasNoChild 
-      ? <MenuListItem />
-      : (
-        <Fragment>
-          <ListItem
-            button
-            onClick={this.handleParentClick(id)} 
-            color="inherit" 
-            className={classNames(classes.parentItem, {
-              [classes.parentItemActive]: openParent
-            })}
-          >
-          <SideBarListItem />
-          {openParent ? <ExpandMore className={classes.iconActive} /> : <ChevronRight className={classes.icon} />}
-          </ListItem>
-          <Collapse in={openParent} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              {items.map(item => {
-              console.log("SidebarMenuItem -> render -> item", item)
-                const hasPermission = permissions.getIn([item.permissionId, item.permissionType]);
-                console.log("SidebarMenuItem -> render -> hasPermission", hasPermission)
-                if (!hasPermission) return <Fragment />;
-                return (
-                  <ListItem
-                    button
-                    key={item.text}
-                    to={item.path}
-                    component={Link}
-                    className={classNames(classes.nested, {[classes.nestedActive]: this.props.location.pathname.includes(item.path)})}
-                  >
-                    <ListItemText className={classes.nestText} secondary={item.text} />
-                  </ListItem>
-                )})}
-            </List>
-          </Collapse>
-        </Fragment>
-      )
+      hasNoChild
+        ? <MenuListItem />
+        : (
+          <Fragment>
+            <ListItem
+              button
+              onClick={this.handleParentClick(id)}
+              color="inherit"
+              className={classNames(classes.parentItem, {
+                [classes.parentItemActive]: openParent
+              })}
+            >
+              <SideBarListItem />
+              {openParent ? <ExpandMore className={classes.iconActive} /> : <ChevronRight className={classes.icon} />}
+            </ListItem>
+            <Collapse in={openParent} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {items.map(item => {
+                  const hasPermission = permissions.getIn([item.permissionId, item.permissionType]);
+                  if (!hasPermission) return <Fragment />;
+                  return (
+                    <ListItem
+                      button
+                      key={item.text}
+                      to={item.path}
+                      component={Link}
+                      className={classNames(
+                        classes.nested,
+                        // { [classes.nestedActive]: this.props.location.pathname.includes(item.path) }
+                      )}
+                    >
+                      <ListItemText className={classes.nestText} secondary={item.text} />
+                    </ListItem>
+                  )
+                })}
+              </List>
+            </Collapse>
+          </Fragment>
+        )
     );
   }
 }
