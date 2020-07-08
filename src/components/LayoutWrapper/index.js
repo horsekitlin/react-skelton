@@ -17,7 +17,7 @@ const mapStateToProps = ({ auth,nav, snackbar }) => ({
   alertType: nav.get('alertType'),
   isSideBarOpened: nav.get('isSideBarOpened'),
   alertMessage: nav.get('alertMessage'),
-  level: nav.get('level'),
+  //level: nav.get('level'),
   isAlertDialogOpen: nav.get('isAlertDialogOpen'),
   employeeName: auth.getIn(['info','employeeName']),
   roleName: auth.getIn(['info','roleName']),

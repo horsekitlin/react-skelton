@@ -21,6 +21,7 @@ const StyledHeader = styled(TableCell)`
   padding-left: 0;
   border-bottom: 2px solid black;
   background: white;
+  text-align: center;
 `;
 
 const StyledPageSelector = styled(Selector)`
@@ -35,8 +36,8 @@ const StyledPageSelector = styled(Selector)`
 `;
 
 const pageSelector = [
-  { text: '5/page', value: 5 },
-  { text: '10/page', value: 10 }
+  { text: '5/页', value: 5 },
+  { text: '10/页', value: 10 }
 ];
 
 const Table = ({

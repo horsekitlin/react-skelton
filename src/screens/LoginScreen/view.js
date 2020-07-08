@@ -135,14 +135,13 @@ class LoginScreen extends React.PureComponent {
             </FormHelperText>
             <div style={{ marginTop: 20 }}>
               <Button
+                text='登录'
                 type="submit"
                 variant="contained"
                 color="primary"
                 size="large"
                 onClick={this.handleSubmit}
-              >
-                登录
-              </Button>
+              />
             </div>
             <div style={{ marginTop: 20 }}>
               <Typography variant="subtitle1">VERSION</Typography>

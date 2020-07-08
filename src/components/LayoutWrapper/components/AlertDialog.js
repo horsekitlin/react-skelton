@@ -1,5 +1,5 @@
 import React from 'react';
-import DialogWrapper from '../../DialogWrapper';
+import AlertDialogWrapper from '../../AlertDialogWrapper';
 
 const AlertDialog = ({
   title,
@@ -11,7 +11,7 @@ const AlertDialog = ({
   onChangeHandler,
   ...props
 }) => (
-  <DialogWrapper
+  <AlertDialogWrapper
     {...props}
     maxWidth='md'
     onConfirm={onConfirm}
@@ -21,7 +21,7 @@ const AlertDialog = ({
     confirmText='确认'
   >
     {title}
-  </DialogWrapper>
+  </AlertDialogWrapper>
 );
 
 export default AlertDialog;
