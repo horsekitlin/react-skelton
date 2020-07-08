@@ -1,25 +1,48 @@
-import React from 'react'
+import React from 'react';
+import propTypes from 'prop-types';
+import classNames from 'classnames';
 import { withStyles } from '@material-ui/core';
+
+const ALIGN_MAP = {
+  between: 'space-between',
+  center: 'center',
+  left: 'flex-start',
+  right: 'flex-end'
+};
 
 const styles = theme => ({
   panelFooter: {
-    marginLeft: -25,
-    marginRight: -25,
-    marginBottom: -30,
-    paddingTop: 5,
-    paddingBottom: 15,
-    paddingLeft: 22,
-    paddingRight: 22,
-    position: 'relative',
     display: 'flex',
-    justifyContent: 'space-between'
+    marginTop: theme.spacing(3)
+  },
+  hasLine: {
+    paddingTop: theme.spacing(1.5),
+    borderTop: '1px solid #efefef'
   }
-})
+});
 
-const PanelFooter = ({classes, children, ...props}) => (
-  <div className={classes.panelFooter} {...props}>
-    {children}
-  </div>
-)
+const PanelFooter = ({ classes, children, align, hasLine, ...props }) => {
+  const justifyContent = ALIGN_MAP[align];
+  return (
+    <div
+      className={classNames(classes.panelFooter, {
+        [classes.hasLine]: hasLine
+      })}
+      {...props}
+      style={{ justifyContent }}
+    >
+      {children}
+    </div>
+  );
+};
 
-export default withStyles(styles)(PanelFooter)
+PanelFooter.propTypes = {
+  align: propTypes.oneOf(['between', 'center', 'left', 'right'])
+};
+
+PanelFooter.defaultProps = {
+  align: 'between',
+  hasLine: true
+};
+
+export default withStyles(styles)(PanelFooter);

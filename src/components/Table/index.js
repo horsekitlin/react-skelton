@@ -21,6 +21,7 @@ const StyledHeader = styled(TableCell)`
   padding-left: 0;
   border-bottom: 2px solid black;
   background: white;
+  text-align: center;
 `;
 
 const StyledPageSelector = styled(Selector)`
@@ -71,7 +72,7 @@ const Table = ({
         </Box>
         <Box m={2} display='flex' flexDirection='row' justifyContent='flex-end' alignItems='center'>
           <Pagination count={10} page={1} shape="rounded" onChange={handleChangePage} />
-          <Typography fontSize='h6.fontSize' textAlign='right'>
+          <Typography fontSize='h6.fontSize' align='right'>
             共 {totalCount} 笔
           </Typography>
           <StyledPageSelector

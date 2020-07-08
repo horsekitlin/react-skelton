@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const StyledTableCell = styled(BasicTableCell)`
   border-width: 0;
   padding-left: 0;
+  text-align: center;
 `;
 
 const TableCell = ({label, ...props}) => {

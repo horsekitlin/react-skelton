@@ -52,7 +52,6 @@ const DialogWrapper = ({
     maxWidth={maxWidth}
     onEnter={onEnter}
     onExited={onExited}
-    containerProps={{ className: classes.root}}
     PaperProps={{ className: classes.paper }}
   >
     <PanelHeader title={title} align='center' />
