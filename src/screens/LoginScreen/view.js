@@ -15,7 +15,7 @@ const styles = theme => ({
     fontSize: 16
   }
 });
-class LoginScreen extends React.Component {
+class LoginScreen extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -62,7 +62,7 @@ class LoginScreen extends React.Component {
         password: this.state.password
       };
 
-      this.props.login(payload);
+      this.props.handleLogin(payload);
     }
     this.setState(state => ({ ...state, ...newState }));
   };
@@ -135,14 +135,13 @@ class LoginScreen extends React.Component {
             </FormHelperText>
             <div style={{ marginTop: 20 }}>
               <Button
+                text='登录'
                 type="submit"
                 variant="contained"
                 color="primary"
                 size="large"
                 onClick={this.handleSubmit}
-              >
-                登录
-              </Button>
+              />
             </div>
             <div style={{ marginTop: 20 }}>
               <Typography variant="subtitle1">VERSION</Typography>

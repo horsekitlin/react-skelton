@@ -36,8 +36,8 @@ const StyledPageSelector = styled(Selector)`
 `;
 
 const pageSelector = [
-  { text: '5/page', value: 5 },
-  { text: '10/page', value: 10 }
+  { text: '5/页', value: 5 },
+  { text: '10/页', value: 10 }
 ];
 
 const Table = ({
@@ -62,8 +62,8 @@ const Table = ({
           <BasicTable>
             <TableHead>
               <TableRow>
-                  {headers.map(title=> 
-                    <StyledHeader>{title}</StyledHeader>
+                  {headers.map((title, index)=> 
+                    <StyledHeader key={`${title}-${index}`}>{title}</StyledHeader>
                   )}
               </TableRow>
             </TableHead>
@@ -72,7 +72,7 @@ const Table = ({
         </Box>
         <Box m={2} display='flex' flexDirection='row' justifyContent='flex-end' alignItems='center'>
           <Pagination count={10} page={1} shape="rounded" onChange={handleChangePage} />
-          <Typography fontSize='h6.fontSize' align='right'>
+          <Typography fontSize='h6.fontSize'>
             共 {totalCount} 笔
           </Typography>
           <StyledPageSelector

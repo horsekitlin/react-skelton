@@ -6,6 +6,7 @@ import {
 import Table from '../../components/Table';
 import TableCell from '../../components/TableCell';
 import Button from '../../components/Buttons';
+import AddIcon from "@material-ui/icons/Add";
 
 const RoleScreen = (props) => {
   const [page, setPage] = useState(0);
@@ -29,11 +30,11 @@ const RoleScreen = (props) => {
     <Box m={3} display='flex' flexDirection='column'>
       <Table
         title='RoleScreen'
-        rightTitle={<Button> Export Action </Button>}
+        rightTitle={<Button text='新增角色' startIcon={<AddIcon/>} /> }
         headers={headers}
         children={
-          datas.map(row=> (
-            <TableRow>
+          datas.map((row, index)=> (
+            <TableRow key={`${row.name}-${index}`}>
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.desc}</TableCell>
               <TableCell>{row.opt}</TableCell>

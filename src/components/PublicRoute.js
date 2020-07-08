@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
-import { Redirect, Route } from 'react-router-dom';
-import { ReducerContext } from '../reducers';
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
 
-export default ({ component: Component, ...rest }) => {
-  const [{ auth }] = useContext(ReducerContext);
+export default ({ component: Component, isAuth, ...rest }) => {
 
   return (
     <Route
       {...rest}
       render={props => {
-        if (!auth.get('isAuth')) return <Component {...props} />;
-        return <Redirect to={{ pathname: '/' }} />;
+        if (isAuth) {
+          return <Redirect to={{ pathname: '/' }} />;
+        }
+        return <Component {...props} isAuth={isAuth} />;
       }}
     />
   );

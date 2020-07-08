@@ -57,7 +57,6 @@ const TextInput = props => {
     onBlur,
     classes,
     required,
-    onChange,
     disabled,
     isSuccess,
     placeholder,

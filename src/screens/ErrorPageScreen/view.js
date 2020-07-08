@@ -60,12 +60,11 @@ const HasNotLoginButtons = ({ classes, onGoHomePage }) => {
   return (
     <div className={classes.buttonZone}>
       <Button
+        text='回登入页'
         color="primary"
         className={classes.button}
         onClick={onGoHomePage}
-      >
-        回登入页
-      </Button>
+      />
     </div>
   );
 };

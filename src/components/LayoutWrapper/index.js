@@ -1,7 +1,7 @@
 import LayoutWrapper from './view';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { refreshTokenAction } from '../../actions/authActions';
+import { logoutAction, refreshTokenAction } from '../../actions/authActions';
 import {
   switchSideBarAction,
   switchMenuAction,
@@ -12,6 +12,7 @@ import {
 } from '../../actions/navActions';
 
 const mapStateToProps = ({ auth,nav, snackbar }) => ({
+  isAuth: auth.get('isAuth'),
   token: auth.getIn(['info','token']),
   alertType: nav.get('alertType'),
   isSideBarOpened: nav.get('isSideBarOpened'),
@@ -22,11 +23,13 @@ const mapStateToProps = ({ auth,nav, snackbar }) => ({
   roleName: auth.getIn(['info','roleName']),
   open: snackbar.get('open'),
   message: snackbar.get('message'),
-  level: snackbar.get('level'),
   permissions: auth.get('permissions'),
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  handleLogout: payload => {
+    dispatch(logoutAction(payload));
+  },
   handleRefreshToken: () => {
     dispatch(refreshTokenAction());
   },

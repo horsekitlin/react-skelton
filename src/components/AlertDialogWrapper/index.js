@@ -104,9 +104,7 @@ const AlertDialogWrapper = ({
           text={confirmText}
           className={classes.button}
           onClick={onConfirm}
-        >
-          {confirmText}
-        </Button>
+        />
         <Button
           hide={mode !== 'ask'}
           text={cancelText}

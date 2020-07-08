@@ -34,8 +34,8 @@ const AccountScreen = (props) => {
         rightTitle={<Button text='新增账号' startIcon={<AddIcon/>} />}
         headers={headers}
         children={
-          datas.map(row=> (
-            <TableRow>
+          datas.map((row, index)=> (
+            <TableRow key={`${row.name}-${index}`}>
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.role}</TableCell>
               <TableCell>{row.status}</TableCell>
