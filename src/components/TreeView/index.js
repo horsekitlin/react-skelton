@@ -18,7 +18,7 @@ const PermissionByType = ({id, item, selected, onSelectItem}) => {
     <TreeItem
       hide={isEmpty(item[permissionType])}
       nodeId={nodeId}
-      label={<><CheckBox checked={isSelected} onClick={onSelectItem(nodeId, !isSelected)}/>{item[permissionType]}</>}
+      label={<><CheckBox checked={isSelected[nodeId]} onClick={onSelectItem(nodeId, !isSelected)}/>{item[permissionType]}</>}
     />);
     })
 };
@@ -33,7 +33,7 @@ const PermissionItem = ({ selected, permission, onSelectItem }) => {
     <TreeItem
       hide={isEmpty(item.read)}
       nodeId={nodeId}
-      label={<><CheckBox checked={isSelected} onClick={onSelectItem(nodeId, !isSelected)}/>{item.read}</>}
+      label={<><CheckBox checked={isSelected[nodeId]} onClick={onSelectItem(nodeId, !isSelected)}/>{item.read}</>}
     >
       <PermissionByType
         id={permissionId}
@@ -74,6 +74,7 @@ class TreeView extends React.PureComponent {
   };
 
   onSelectItem = (id, newStatus) => () => {
+    console.log("TreeView -> onSelectItem -> id", id)
     const stateSelected = this.state.selected;
     
     if (newStatus) {
@@ -99,27 +100,23 @@ class TreeView extends React.PureComponent {
       >
         {permissions.map(role => {
           const permissionId = role.id;
+          const item = PERMISSON_LABEL_MAPPING[permissionId];
+          const nodeId = `${permissionId}`;
+          const isSelected = !isEmpty(selected[nodeId]);
           const children = role.children;
-            if(isEmpty(children)) {
-              const item = PERMISSON_LABEL_MAPPING[permissionId];
-              const nodeId = `${permissionId}`;
-              const isSelected = !isEmpty(selected[nodeId]);
-              return (
-                <TreeItem
-                  hide={isEmpty(item.read)}
-                  nodeId={nodeId}
-                  label={<><CheckBox checked={isSelected} onClick={this.onSelectItem(nodeId, !isSelected)}/>{item.read}</>}
-                />
-              );
+          if(isEmpty(children)) {
+            return (
+              <TreeItem
+                hide={isEmpty(item.read)}
+                nodeId={nodeId}
+                label={<><CheckBox checked={isSelected[nodeId]} onClick={this.onSelectItem(nodeId, !isSelected)}/>{item.read}</>}
+              />
+            );
           } else {
-            const item = PERMISSON_LABEL_MAPPING[permissionId];
-            const nodeId = `${permissionId}`;
-            const isSelected = !isEmpty(selected[nodeId]);
-
             return (
               <TreeItem
                 nodeId={nodeId}
-                label={<><CheckBox checked={isSelected} onClick={this.onSelectItem(nodeId, !isSelected)}/>{item.read}</>}
+                label={<><CheckBox checked={isSelected[[nodeId]]} onClick={this.onSelectItem(nodeId, !isSelected)}/>{item.read}</>}
               >
                 { children.map(child=> {
                   return <PermissionItem selected={selected} permission={child} onSelectItem={this.onSelectItem} />
