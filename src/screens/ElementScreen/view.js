@@ -12,6 +12,7 @@ import TextInput from "../../components/TextInput";
 import Switch from "../../components/Switch";
 import Radio from '../../components/Radio';
 import Table from '../../components/Table';
+import TreeView from '../../components/TreeView';
 
 const tableDatas = [
   { id: 'name', numeric: false, disablePadding: true, label: 'Dessert (100g serving)' },
@@ -57,6 +58,9 @@ const ElementScreen = ({ isLoading }) => {
               ))
             }
           />
+        <Box mt={5} p={2} display='flex' flexDirection='column'  justifyContent='flex-start'border='1px solid lightgrey' >
+          <TreeView />
+        </Box>
         </Box> 
       </Box>
   );
