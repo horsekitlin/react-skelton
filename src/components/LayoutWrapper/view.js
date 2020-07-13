@@ -7,10 +7,10 @@ import { withStyles, createMuiTheme, MuiThemeProvider } from '@material-ui/core/
 import { Toolbar, AppBar, IconButton, Typography, Drawer, Divider, Hidden } from '@material-ui/core';
 import ProfileMenu from './components/ProfileMenu';
 import SidebarMenu from './components/SidebarMenu';
-import Colors from '../../constants/colors.config';
 import AlertDialog from './components/AlertDialog';
 import ErrorBoundary from '../ErrorBoundary';
 import SnackBar from '../Snackbar';
+import colors from '../../theme/colors';
 
 const drawerWidth = 200;
 const drawerNotifyWidth = 600;
@@ -27,7 +27,7 @@ const darkTheme = createMuiTheme({
 const styles = theme => ({
   root: {
     width: '100%',
-    backgroundColor: Colors.bodybg,
+    backgroundColor: colors.bodybg,
     minHeight: '100vh',
     height: '100%',
     fontFamily: theme.typography.fontFamily,
@@ -39,7 +39,7 @@ const styles = theme => ({
     zIndex: theme.zIndex.drawer + 1,
     boxShadow: `0px 0px 3px rgba(0, 0, 0, 0.72)`,
     padding: '0px 15px',
-    borderBottom: `1px solid ${Colors.primarydark}`,
+    borderBottom: `1px solid ${colors.primarydark}`,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
@@ -53,7 +53,7 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen
     }),
     boxShadow: `0px 0px 3px rgba(0, 0, 0, 0.72)`,
-    borderBottom: `1px solid ${Colors.primarydark}`
+    borderBottom: `1px solid ${colors.primarydark}`
   },
   menuButton: {
     marginRight: 36,
@@ -68,7 +68,7 @@ const styles = theme => ({
     width: 0,
     flexShrink: 0,
     whiteSpace: 'nowrap',
-    backgroundColor: Colors.menubg,
+    backgroundColor: colors.menubg,
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
     },
@@ -108,14 +108,14 @@ const styles = theme => ({
     display: 'flex',
     alignItems: 'center',
     padding: '0 15px',
-    backgroundColor: Colors.primary,
+    backgroundColor: colors.primary,
     borderBottom: '1px solid #2a41ad',
     ...theme.mixins.toolbar
   },
   content: {
     flexGrow: 1,
     paddingLeft: 0,
-    backgroundColor: Colors.bodybg,
+    backgroundColor: colors.bodybg,
     transition: theme.transitions.create(['margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen
@@ -140,7 +140,7 @@ const styles = theme => ({
     }
   },
   divider: {
-    borderBottom: `1px solid ${Colors.menubgdark}`,
+    borderBottom: `1px solid ${colors.menubgdark}`,
     height: 0
   },
   sideBar: {

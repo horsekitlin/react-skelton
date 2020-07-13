@@ -5,7 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 import InputBase from '@material-ui/core/InputBase';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import { withStyles } from '@material-ui/core/styles';
-import Colors from '../../constants/colors.config';
+import colors from '../../theme/colors';
 import ValidErrorMessage from './ValidErrorMessage';
 import { FormGroup, FormLabel } from './InputWrappers';
 
@@ -39,7 +39,7 @@ const styles = theme => ({
   successIcon: {
     margin: 'auto',
     fontSize: '18px',
-    color: Colors.success,
+    color: colors.success,
     position: 'absolute',
     right: 10,
     marginTop: 10,

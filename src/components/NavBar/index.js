@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import MenuIcon from '@material-ui/icons/Menu';
 import { createMuiTheme, } from '@material-ui/core/styles';
 import { Toolbar, AppBar, IconButton, Typography } from '@material-ui/core';
-import Colors from '../../constants/colors.config';
 import ProfileMenu from './components/ProfileMenu';
+import colors from '../../theme/colors';
 
 const drawerWidth = 200;
 
@@ -20,7 +20,7 @@ const darkTheme = createMuiTheme({
 const styles = theme => ({
   root: {
     width: '100%',
-    backgroundColor: Colors.bodybg,
+    backgroundColor: colors.bodybg,
     minHeight: '100vh',
     height: '100%',
     fontFamily: theme.typography.fontFamily,
@@ -65,7 +65,7 @@ const styles = theme => ({
     width: 0,
     flexShrink: 0,
     whiteSpace: 'nowrap',
-    backgroundColor: Colors.menubg,
+    backgroundColor: colors.menubg,
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
     },
@@ -110,7 +110,7 @@ const styles = theme => ({
   content: {
     flexGrow: 1,    
     paddingLeft: 0,
-    backgroundColor: Colors.bodybg,
+    backgroundColor: colors.bodybg,
     transition: theme.transitions.create(['margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -130,7 +130,7 @@ const styles = theme => ({
     }, 
   },
   divider: {
-    borderBottom: `1px solid ${Colors.menubgdark}`,
+    borderBottom: `1px solid ${colors.menubgdark}`,
     height:0
   },
   sideBar: {

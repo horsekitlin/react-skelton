@@ -2,14 +2,14 @@ import React from "react";
 import { withStyles, Typography } from "@material-ui/core";
 import WarningIcon from "@material-ui/icons/Warning";
 // import { CustomButton } from "../../components/Buttons";
-import Colors from "../../constants/colors.config";
+import colors from '../../theme/colors';
 
 const styles = theme => ({
   root: {
     height: "100vh",
     width: "100vw",
     display: "table",
-    backgroundColor: Colors.bodybg
+    backgroundColor: colors.bodybg
   },
   infoBox: {
     textAlign: "center",

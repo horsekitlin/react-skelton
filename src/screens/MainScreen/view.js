@@ -10,7 +10,7 @@ import LoginScreen from '../LoginScreen';
 import AccountScreen from '../AccountScreen';
 import RoleScreen from '../RoleScreen';
 import ErrorBoundary from '../../components/ErrorBoundary';
-import { AppColors } from '../../constants/colors.config';
+import palette from '../../theme/palette';
 import LayoutWrapper from '../../components/LayoutWrapper';
 
 const theme = createMuiTheme({
@@ -36,7 +36,7 @@ const theme = createMuiTheme({
     fontSize: 10,
     htmlFontSize: 12
   },
-  palette: AppColors,
+  palette,
   shape: {
     borderRadius: 4
   },

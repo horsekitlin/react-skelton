@@ -4,15 +4,15 @@ import ChevronRight from '@material-ui/icons/ChevronRight';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import { Link } from 'react-router-dom';
 import { ListItem, ListItemIcon, ListItemText, Collapse, List, withStyles } from '@material-ui/core';
-import Colors from '../../../constants/colors.config'
+import colors from '../../../theme/colors';
 import ReduxStore from '../../../store/configureStore';
 
 const styles = theme => ({
   icon: {
-    color: Colors.greyheavy
+    color: colors.greyheavy
   },
   iconActive: {
-    color: Colors.bodybg
+    color: colors.bodybg
   },
   listItem: {
     fontWeight: 'inherit',
@@ -20,33 +20,33 @@ const styles = theme => ({
   },
   nested: {
     paddingLeft: theme.spacing(4),
-    backgroundColor: Colors.menubg,
+    backgroundColor: colors.menubg,
     transition: theme.transitions.create(['border'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     '& p': {
-      color: Colors.greymiddle,
+      color: colors.greymiddle,
       fontWeight: '100 !important',
       fontSize: '18px',
     }
   },
   nestedActive: {
     '& p': {
-      color: Colors.bodybg
+      color: colors.bodybg
     }
   },
   parentIcon: {
-    color: Colors.greymiddle,
+    color: colors.greymiddle,
     margin: 0
   },
   parentIconActive: {
-    color: Colors.bodybg
+    color: colors.bodybg
   },
   parentText: {
     paddingLeft: 0,
     '& span': {
-      color: Colors.greymiddle,
+      color: colors.greymiddle,
       fontSize: '18px',
       fontFamily: [
         '"Segoe UI"',
@@ -69,7 +69,7 @@ const styles = theme => ({
   },
   parentTextActive: {
     '& span': {
-      color: Colors.bodybg
+      color: colors.bodybg
     }
   },
   parentItem: {
@@ -78,8 +78,8 @@ const styles = theme => ({
     }
   },
   parentItemActive: {
-    borderLeft: `3px solid ${Colors.primary}`,
-    backgroundColor: Colors.menubgdark,
+    borderLeft: `3px solid ${colors.primary}`,
+    backgroundColor: colors.menubgdark,
   },
   nestText: {
     fontWeight: '100 !important',
@@ -105,12 +105,12 @@ const styles = theme => ({
     }
   },
   itemIcon: {
-    color: Colors.greymiddle,
+    color: colors.greymiddle,
     width: theme.spacing(3),
     margin: 0
   },
   itemIconActive: {
-    color: Colors.bodybg,
+    color: colors.bodybg,
   }
 });
 

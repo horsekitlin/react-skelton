@@ -3,11 +3,11 @@ import propTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import { withStyles } from '@material-ui/core';
 import classNames from 'classnames';
-import Colors from '../../constants/colors.config';
+import colors from '../../theme/colors';
 
 const styles = theme => ({
   message: {
-    color: Colors.dangerdark,
+    color: colors.dangerdark,
     paddingLeft: 100,
     height: 0,
     fontSize: 10,

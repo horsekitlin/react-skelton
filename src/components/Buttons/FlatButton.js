@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components';
 import Button from './index';
-import COLORS from '../../constants/colors.config';
+import colors from '../../theme/colors';
 
 const StyledFlatButton = styled(Button)`
-    color: ${COLORS.primary};
-    border-color: ${COLORS.primary};
-    background-color:: ${COLORS.primary};
+    color: ${colors.primary};
+    border-color: ${colors.primary};
+    background-color:: ${colors.primary};
     margin: 0 1em 0 1em;
 `;
 
