@@ -19,7 +19,7 @@ export const palette = {
     main: colors.secondary,
     light: colors.secondarylight,
     dark: colors.secondarydark,
-    contrastText: colors.greymiddle,
+    contrastText: colors.greydark,
   },
   success: {
     main: colors.success,
@@ -48,9 +48,9 @@ export const palette = {
     dark: colors.rowdark,
   },
   default: {
-    main: colors.greymiddle,
+    main: colors.greydark,
     light: colors.bodybg,
-    dark: colors.greyheavy,
+    dark: colors.greydarker,
   },
 }
 

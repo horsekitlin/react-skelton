@@ -31,7 +31,7 @@ const AccountScreen = (props) => {
     <Box m={3} display='flex' flexDirection='column'>
       <Table
         title='AccountScreen'
-        rightTitle={<Button text='新增账号' startIcon={<AddIcon/>} />}
+        rightElement={<Button text='新增账号' startIcon={<AddIcon/>} />}
         headers={headers}
         children={
           datas.map((row, index)=> (

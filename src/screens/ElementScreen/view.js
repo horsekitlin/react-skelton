@@ -1,6 +1,6 @@
 import React from "react";
 import Box from '@material-ui/core/Box';
-import { CircularProgress, TableRow, TableCell } from '@material-ui/core';
+import { CircularProgress, TableRow } from '@material-ui/core';
 import DateRange from "../../components/DateRange";
 import Button from '../../components/Buttons';
 import FlatButton from '../../components/Buttons/FlatButton';
@@ -12,6 +12,7 @@ import TextInput from "../../components/TextInput";
 import Switch from "../../components/Switch";
 import Radio from '../../components/Radio';
 import Table from '../../components/Table';
+import TableCell from '../../components/TableCell';
 
 const tableDatas = [
   { id: 'name', numeric: false, disablePadding: true, label: 'Dessert (100g serving)' },
@@ -44,12 +45,12 @@ const ElementScreen = ({ isLoading }) => {
         <Box m={2} p={2}>
           <Table
             title='Example Table'
-            rightTitle={<Button text='Export Action' />}
+            rightElement={<Button text='Export Action' />}
             headers={Object.keys(tableDatas[0])}
             children={
               tableDatas.map((row, index)=> (
                 <TableRow key={`${row.id}-${index}`}>
-                  <TableCell>{row.id}</TableCell>
+                  <TableCell align='left'>{row.id}</TableCell>
                   <TableCell>{(row.numeric)? 'Y': 'N'}</TableCell>
                   <TableCell>{(row.disablePadding)? 'Y': 'N'}</TableCell>
                   <TableCell>{row.label}</TableCell>

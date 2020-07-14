@@ -29,8 +29,6 @@ const colors = {
   white: '#FFFFFF',
   black: '#000000',
   bodybg: '#F8F9FA',
-  greymiddle: '#A1A1A1',
-  greyheavy: '#6C757D',
   rowlight:'F9F9F9',
   rowmiddle:'#F6F6F6',
   rowdark:'#E1E1E1',
@@ -38,6 +36,13 @@ const colors = {
   menubglight: '#2C3237',
   menubgdark: '#16181B',
   transparent: 'transparent',
+  grey: '#757575',
+  greylight: '#bfbfbf',
+  greylighter: '#ebebeb',
+  greydark: '#778999',
+  greydarker: '#4d5b69',
+  linelight: '#e0e0e0',
+  linedark: '#dae1e6',
 };
 
 export default colors;

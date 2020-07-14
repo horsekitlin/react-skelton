@@ -30,7 +30,7 @@ const RoleScreen = (props) => {
     <Box m={3} display='flex' flexDirection='column'>
       <Table
         title='RoleScreen'
-        rightTitle={<Button text='新增角色' startIcon={<AddIcon/>} /> }
+        rightElement={<Button text='新增角色' startIcon={<AddIcon/>} /> }
         headers={headers}
         children={
           datas.map((row, index)=> (

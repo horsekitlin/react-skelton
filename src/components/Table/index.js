@@ -21,7 +21,6 @@ const StyledHeader = styled(TableCell)`
   padding-left: 0;
   border-bottom: 2px solid black;
   background: white;
-  text-align: center;
 `;
 
 const StyledPageSelector = styled(Selector)`
@@ -42,7 +41,7 @@ const pageSelector = [
 
 const Table = ({
   title,
-  rightTitle,
+  rightElement,
   headers,
   children,
   totalCount,
@@ -52,8 +51,8 @@ const Table = ({
 
   return (
     <Fragment>
-      <HeaderBar title={title} rightTitle={rightTitle} />
-      <Box mb={2}>
+      <HeaderBar title={title} variant='h3' rightElement={rightElement} />
+      <Box pt={1} mb={2}>
         <Divider variant="fullWidth" />
       </Box>
       <TableContainer component={Paper} >
@@ -63,7 +62,12 @@ const Table = ({
             <TableHead>
               <TableRow>
                   {headers.map((title, index)=> 
-                    <StyledHeader key={`${title}-${index}`}>{title}</StyledHeader>
+                    <StyledHeader
+                      align={index !== 0 ? 'center' : 'left'} 
+                      key={`${title}-${index}`}
+                    >
+                      {title}
+                    </StyledHeader>
                   )}
               </TableRow>
             </TableHead>

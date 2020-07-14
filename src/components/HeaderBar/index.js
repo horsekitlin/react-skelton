@@ -1,39 +1,42 @@
 import React, { Fragment } from 'react';
-import Box from '@material-ui/core/Box';
-import styled from 'styled-components';
 import propTypes from 'prop-types';
+import { Box, Typography } from '@material-ui/core';
 
-const Header = styled.div`
-  font-size: 24px;
-  color: balck;
-  font-weight: 900;
-  width: 20%;
-`;
-
-const HeaderBar = ({ hide, title, rightTitle }) => {
+const HeaderBar = ({ hide, variant, title, rightElement }) => {
   if(hide) return <Fragment />;
 
   return (
     <Box
-      mb={2}
       display='flex'
       flexDirection='row'
       justifyContent='space-between'
       alignItems='center'
     >
-      <Header>{title}</Header>
-      {rightTitle}
+      <Typography variant={variant} color='textPrimary' >{title}</Typography>
+      {rightElement}
     </Box>
   );
-
 };
 
 HeaderBar.propTypes = {
-  title: propTypes.string,
+  variant: propTypes.oneOf([
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'subtitle1',
+    'subtitle2',
+    'body1',
+    'body2',
+  ]),
 };
 
-HeaderBar.defaultPrsops = {
+HeaderBar.defaultProps = {
   title: '',
+  variant: 'h3',
+  rightElement: null,
 };
 
 

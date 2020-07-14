@@ -9,7 +9,7 @@ import ReduxStore from '../../../store/configureStore';
 
 const styles = theme => ({
   icon: {
-    color: colors.greyheavy
+    color: colors.greydarker
   },
   iconActive: {
     color: colors.bodybg
@@ -26,7 +26,7 @@ const styles = theme => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     '& p': {
-      color: colors.greymiddle,
+      color: colors.greydark,
       fontWeight: '100 !important',
       fontSize: '18px',
     }
@@ -37,7 +37,7 @@ const styles = theme => ({
     }
   },
   parentIcon: {
-    color: colors.greymiddle,
+    color: colors.greydark,
     margin: 0
   },
   parentIconActive: {
@@ -46,7 +46,7 @@ const styles = theme => ({
   parentText: {
     paddingLeft: 0,
     '& span': {
-      color: colors.greymiddle,
+      color: colors.greydark,
       fontSize: '18px',
       fontFamily: [
         '"Segoe UI"',
@@ -105,7 +105,7 @@ const styles = theme => ({
     }
   },
   itemIcon: {
-    color: colors.greymiddle,
+    color: colors.greydark,
     width: theme.spacing(3),
     margin: 0
   },
