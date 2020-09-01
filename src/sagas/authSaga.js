@@ -35,11 +35,18 @@ const MOCK_USER = {
   },
 };
 
-const mockLogin = () => new Promise(resolve =>
+export const mockLogin = () => new Promise(resolve =>
   setTimeout(() => {
     resolve();
   }, 1000)
 );
+
+export const okLogin = () => ({
+  type: types.LOGIN_SUCCESS,
+  payload: {
+    ok: true
+  }
+});
 
 export function* loginSaga() {
   try {
@@ -47,13 +54,7 @@ export function* loginSaga() {
     
     saveLoginUser(MOCK_USER);
 
-    yield put({
-      type: types.LOGIN_SUCCESS,
-      payload: {
-        ...MOCK_USER,
-        ok: true
-      }
-    });
+    yield put(okLogin());
   } catch (error) {
     yield put({
       type: types.LOGIN,
