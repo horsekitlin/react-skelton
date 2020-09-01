@@ -1,30 +1,39 @@
 import React from 'react';
-import sinon from 'sinon';
-import LoginScene from '../../components/LoginScene';
-import { mount, shallow } from 'enzyme';
-import initialState from '../../reducers/initialState';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import LoginScene from '../LoginScreen/view';
+import theme from '../../constants/theme';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import { render, fireEvent } from '@testing-library/react'
+import { authState } from '../../reducers/initialState';
 
-let Component = null,
-  userReducer = null,
-  settingsReducer = null,
-  handleLogin = null;
+const MOCK_ACCOUNT = 'MOCK_ACCOUNT';
+const MOCK_PASSWORD = 'MOCK_PASSWORD';
 
 describe('LoginScene unitest', () => {
-  beforeEach(() => {
-    handleLogin = sinon.spy();
-    userReducer = Object.assign({}, initialState.user);
+  it('should test AuthWrapper', async () => {
+    const handleLogin = jest.fn();
 
-    Component = mount(
-      <LoginScene user={userReducer} handleLogin={handleLogin} />
+    const { getByTestId } = render(
+      <MuiThemeProvider theme={theme}>
+        <LoginScene handleLogin={handleLogin} auth={authState} />
+      </MuiThemeProvider>
     );
-  });
-  it('should test AuthWrapper', () => {
-    let state = Component.state();
-    expect(state.email).toBe('');
-    Component.find("input[name='email']").simulate('change', {
-      target: { name: 'email', value: 'test@gmail.com' }
-    });
-    expect(Component.state().email).toBe('test@gmail.com');
+    const [accountInput, passwordInput, submitButton] = await Promise.all([
+      getByTestId('account'),
+      getByTestId('password'),
+      getByTestId('submit'),
+    ])
+
+    await Promise.all([
+      fireEvent.change(accountInput, {
+        target: { value: MOCK_ACCOUNT, name: 'account' },
+      }),
+      fireEvent.change(passwordInput, {
+        target: { value: MOCK_PASSWORD, name: 'password' },
+      }),
+    ])
+
+    await fireEvent.click(submitButton);
+
+    expect(handleLogin).toHaveBeenCalled();
   });
 });
