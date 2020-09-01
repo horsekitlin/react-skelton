@@ -2,7 +2,7 @@ import { authState } from "./initialState";
 import types from "../constants/actionTypes";
 import { fromJS } from "immutable";
 
-const loginSuccess = (auth, payload) =>
+export const loginSuccess = (auth, payload) =>
   auth.merge(
     fromJS({
       isAuth: true,

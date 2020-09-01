@@ -1,15 +1,16 @@
 import React from "react";
 import {
   Grid,
-  Button,
   TextField,
   Typography,
   FormHelperText,
   withStyles
 } from "@material-ui/core";
 import { Panel, PanelBody } from "../../components/Panels";
+import packageJson from '../../../package.json';
+import Button from '../../components/Buttons/TextButton';
 
-const styles = theme => ({
+const styles = () => ({
   errorMessage: {
     textAlign: "center",
     fontSize: 16
@@ -86,7 +87,7 @@ class LoginScreen extends React.PureComponent {
           }}
         >
           <div>
-            
+
             <Typography
               variant="h6"
               style={{ color: "#c1c1c1", fontWeight: 200 }}
@@ -97,6 +98,9 @@ class LoginScreen extends React.PureComponent {
           <PanelBody>
             <div>
               <TextField
+                inputProps={{
+                  "data-testid": "account"
+                }}
                 error={this.state.accountErrorMsg !== ""}
                 style={{ width: "60%" }}
                 name="account"
@@ -112,6 +116,9 @@ class LoginScreen extends React.PureComponent {
             </div>
             <div>
               <TextField
+                inputProps={{
+                  "data-testid": "password"
+                }}
                 error={this.state.passwordErrorMsg !== ""}
                 style={{ width: "60%" }}
                 className={"textField"}
@@ -135,16 +142,17 @@ class LoginScreen extends React.PureComponent {
             </FormHelperText>
             <div style={{ marginTop: 20 }}>
               <Button
-                text='登录'
+                data-testid="submit"
                 type="submit"
                 variant="contained"
                 color="primary"
                 size="large"
                 onClick={this.handleSubmit}
+                title='登录'
               />
             </div>
             <div style={{ marginTop: 20 }}>
-              <Typography variant="subtitle1">VERSION</Typography>
+              <Typography variant="subtitle1">VERSION {packageJson.version}</Typography>
             </div>
           </PanelBody>
         </Panel>
