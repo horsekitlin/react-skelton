@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import { Panel, PanelBody } from "../../components/Panels";
 import packageJson from '../../../package.json';
-import Button from '../../components/Buttons/TextButton';
+import Button from '../../components/Buttons';
 
 const styles = () => ({
   errorMessage: {
