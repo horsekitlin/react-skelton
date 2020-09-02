@@ -17,15 +17,6 @@ const routerConfig = [
     path: '/'
   },
   {
-    id: 'elements',
-    permissionId: 'elements',
-    permissionType: 'read',
-    icon: <AllInboxIcon />,
-    title: '元件目录',
-    component: ElementContainer,
-    path: '/elements'
-  },
-  {
     id: 'settings',
     permissionId: 'settings',
     permissionType: 'read',

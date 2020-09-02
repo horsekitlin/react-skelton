@@ -33,13 +33,7 @@ const MainScreen = (props) => {
                 exact
                 path='/'
                 isAuth={isAuth}
-                component={HomeScreen} />
-              <PrivateRoute
-                exact
-                path='/elements'
-                isAuth={isAuth}
-                component={ElementScreen}
-              />
+                component={ElementScreen} />
               <PrivateRoute
                 exact
                 path='/system/account'
