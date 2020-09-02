@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import { withStyles } from '@material-ui/core';
 import classNames from 'classnames';
-import colors from '../../theme/colors';
+import colors from '~/theme/colors';
 
 const styles = theme => ({
   message: {

@@ -1,6 +1,3 @@
-const GREY = '#727272';
-const GREY_LIGHT = '#a3a1a2';
-
 const colors = {
   primary: '#3F51B5',
   primarylight: '#4D5EC1',

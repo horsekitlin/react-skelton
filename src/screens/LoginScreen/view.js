@@ -6,9 +6,9 @@ import {
   FormHelperText,
   withStyles
 } from "@material-ui/core";
-import { Panel, PanelBody } from "../../components/Panels";
-import packageJson from '../../../package.json';
-import Button from '../../components/Buttons';
+import { Panel, PanelBody } from "~/components/Panels";
+import packageJson from '~/../package.json';
+import Button from '~/components/Buttons';
 
 const styles = () => ({
   errorMessage: {

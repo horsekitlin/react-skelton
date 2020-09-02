@@ -5,7 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 import InputBase from '@material-ui/core/InputBase';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import { withStyles } from '@material-ui/core/styles';
-import colors from '../../theme/colors';
+import colors from '~/theme/colors';
 import ValidErrorMessage from './ValidErrorMessage';
 import { FormGroup, FormLabel } from './InputWrappers';
 

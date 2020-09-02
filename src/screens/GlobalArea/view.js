@@ -1,5 +1,5 @@
 import React, { useEffect, Fragment } from 'react';
-import Snackbar from '../../components/Snackbar';
+import Snackbar from '~/components/Snackbar';
 
 
 const closeGlobalMsgModal = (

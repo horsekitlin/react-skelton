@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import Button from './index';
-import colors from '../../theme/colors';
+import colors from '~/theme/colors';
 
 const StyledFlatButton = styled(Button)`
     color: ${colors.primary};

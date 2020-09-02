@@ -2,8 +2,8 @@ import { testSaga, expectSaga } from 'redux-saga-test-plan';
 import { call } from 'redux-saga/effects';
 import { loginSaga, okLogin, mockLogin } from '../authSaga';
 import moment from 'moment';
-import authState from '../../reducers/initialState';
-import authReducer, { loginSuccess } from '../../reducers/authReducer';
+import authState from '~/reducers/initialState';
+import authReducer, { loginSuccess } from '~/reducers/authReducer';
 
 const loginActionObject = {
   payload: {}

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { loginAction } from '../../actions/authActions';
+import { loginAction } from '~/actions/authActions';
 import LoginScreen from './view';
 
 const mapStateToProps = ({ auth }) => ({

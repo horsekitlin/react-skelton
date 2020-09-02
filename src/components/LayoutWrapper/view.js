@@ -10,7 +10,7 @@ import SidebarMenu from './components/SidebarMenu';
 import AlertDialog from './components/AlertDialog';
 import ErrorBoundary from '../ErrorBoundary';
 import SnackBar from '../Snackbar';
-import colors from '../../theme/colors';
+import colors from '~/theme/colors';
 
 const drawerWidth = 200;
 const drawerNotifyWidth = 600;

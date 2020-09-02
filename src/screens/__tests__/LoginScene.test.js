@@ -1,9 +1,9 @@
 import React from 'react';
 import LoginScene from '../LoginScreen/view';
-import theme from '../../constants/theme';
+import theme from '~/constants/theme';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { render, fireEvent } from '@testing-library/react'
-import { authState } from '../../reducers/initialState';
+import { authState } from '~/reducers/initialState';
 
 const MOCK_ACCOUNT = 'MOCK_ACCOUNT';
 const MOCK_PASSWORD = 'MOCK_PASSWORD';

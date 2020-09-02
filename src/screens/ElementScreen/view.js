@@ -1,19 +1,19 @@
 import React from "react";
 import Box from '@material-ui/core/Box';
 import { CircularProgress, TableRow } from '@material-ui/core';
-import DateRange from "../../components/DateRange";
-import Button from '../../components/Buttons';
-import FlatButton from '../../components/Buttons/FlatButton';
-import LineButton from '../../components/Buttons/LineButton';
-import TextButton from '../../components/Buttons/TextButton';
-import Checkbox from '../../components/CheckBox';
-import Selector from '../../components/Selector';
-import TextInput from "../../components/TextInput";
-import Switch from "../../components/Switch";
-import Radio from '../../components/Radio';
-import Table from '../../components/Table';
-import TableCell from '../../components/TableCell';
-import TreeView from '../../components/TreeView';
+import DateRange from "~/components/DateRange";
+import Button from '~/components/Buttons';
+import FlatButton from '~/components/Buttons/FlatButton';
+import LineButton from '~/components/Buttons/LineButton';
+import TextButton from '~/components/Buttons/TextButton';
+import Checkbox from '~/components/CheckBox';
+import Selector from '~/components/Selector';
+import TextInput from "~/components/TextInput";
+import Switch from "~/components/Switch";
+import Radio from '~/components/Radio';
+import Table from '~/components/Table';
+import TableCell from '~/components/TableCell';
+import TreeView from '~/components/TreeView';
 
 const tableDatas = [
   { id: 'name', numeric: false, disablePadding: true, label: 'Dessert (100g serving)' },

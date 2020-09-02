@@ -3,9 +3,9 @@ import {
   Box,
   TableRow,
 } from '@material-ui/core';
-import Table from '../../components/Table';
-import TableCell from '../../components/TableCell';
-import Button from '../../components/Buttons';
+import Table from '~/components/Table';
+import TableCell from '~/components/TableCell';
+import Button from '~/components/Buttons';
 import AddIcon from "@material-ui/icons/Add";
 
 const RoleScreen = (props) => {

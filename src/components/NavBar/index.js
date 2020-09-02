@@ -4,7 +4,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { createMuiTheme, } from '@material-ui/core/styles';
 import { Toolbar, AppBar, IconButton, Typography } from '@material-ui/core';
 import ProfileMenu from './components/ProfileMenu';
-import colors from '../../theme/colors';
+import colors from '~/theme/colors';
 
 const drawerWidth = 200;
 

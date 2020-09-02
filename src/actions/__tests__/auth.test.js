@@ -1,5 +1,5 @@
 import * as authActions from '../authActions';
-import types from '../../constants/actionTypes';
+import types from '~/constants/actionTypes';
 
 const { describe, it, expect } = global;
 

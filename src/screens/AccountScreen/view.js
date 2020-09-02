@@ -4,9 +4,9 @@ import {
   TableRow,
 } from '@material-ui/core';
 import AddIcon from "@material-ui/icons/Add";
-import Table from '../../components/Table';
-import Button from '../../components/Buttons';
-import TableCell from '../../components/TableCell';
+import Table from '~/components/Table';
+import Button from '~/components/Buttons';
+import TableCell from '~/components/TableCell';
 
 
 const AccountScreen = (props) => {

@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import { withStyles, withMobileDialog } from '@material-ui/core';
-import { PanelHeader, PanelFooter } from '../../components/Panels';
+import { PanelHeader, PanelFooter } from '~/components/Panels';
 import Button from '../Buttons';
 import TextButton from '../Buttons/TextButton';
 

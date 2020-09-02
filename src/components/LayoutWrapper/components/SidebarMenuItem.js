@@ -4,8 +4,8 @@ import ChevronRight from '@material-ui/icons/ChevronRight';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import { Link } from 'react-router-dom';
 import { ListItem, ListItemIcon, ListItemText, Collapse, List, withStyles } from '@material-ui/core';
-import colors from '../../../theme/colors';
-import ReduxStore from '../../../store/configureStore';
+import colors from '~/theme/colors';
+import ReduxStore from '~/store/configureStore';
 
 const styles = theme => ({
   icon: {
