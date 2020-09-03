@@ -63,7 +63,6 @@ const TextInput = props => {
     maxLength,
     errorMessage
   } = props;
-
   const [text, setText] = useState('');
 
   useEffect(() => {
@@ -74,8 +73,7 @@ const TextInput = props => {
 
   if (hide) return null;
 
-  const handleOnChange = ({ target: { name, value } }) => {
-    //onChange({ name, value });
+  const handleOnChange = ({ target: { value } }) => {
     setText(value);
   };
 
@@ -127,6 +125,7 @@ TextInput.defaultProps = {
   hide: false,
   disabled: false,
   title: '',
+  value: '',
   type: 'text',
   errorMessage: '',
   defaultValue: '',

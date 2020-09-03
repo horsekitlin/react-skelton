@@ -12,7 +12,6 @@ describe("settings reducer unitest", () => {
   });
 
   it("should fetching", () => {
-    console.log('settings.toJS()', settings.toJS())
     const startFetchingAction = { type: types.START_FETCHING };
     const stopFetchingAction = { type: types.STOP_FETCHING };
     expect(settings.get("fetchCount")).toBe(0);
