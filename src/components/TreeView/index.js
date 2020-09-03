@@ -8,19 +8,20 @@ import isEmpty from 'lodash/isEmpty';
 import TreeItem from '../TreeItem';
 import { PERMISSON_LABEL_MAPPING, ROLES_PERMISSIONS } from './mock';
 
-const PermissionByType = ({id, item, selected, onSelectItem}) => {
+const PermissionByType = ({ id, item, selected, onSelectItem }) => {
   const permissionTypes = ['add', 'edit', 'delete'];
 
-  return permissionTypes.map(permissionType => {
+  return permissionTypes.map((permissionType, index) => {
     const nodeId = `${id}_${permissionType}`;
     const isSelected = !isEmpty(selected[nodeId]);
     return (
-    <TreeItem
-      hide={isEmpty(item[permissionType])}
-      nodeId={nodeId}
-      label={<><CheckBox checked={isSelected[nodeId]} onClick={onSelectItem(nodeId, !isSelected)}/>{item[permissionType]}</>}
-    />);
-    })
+      <TreeItem
+        key={`permission-type-${nodeId}`}
+        hide={isEmpty(item[permissionType])}
+        nodeId={nodeId}
+        label={<><CheckBox checked={isSelected[nodeId]} onClick={onSelectItem(nodeId, !isSelected)} />{item[permissionType]}</>}
+      />);
+  })
 };
 
 const PermissionItem = ({ selected, permission, onSelectItem }) => {
@@ -33,7 +34,7 @@ const PermissionItem = ({ selected, permission, onSelectItem }) => {
     <TreeItem
       hide={isEmpty(item.read)}
       nodeId={nodeId}
-      label={<><CheckBox checked={isSelected[nodeId]} onClick={onSelectItem(nodeId, !isSelected)}/>{item.read}</>}
+      label={<><CheckBox checked={isSelected[nodeId]} onClick={onSelectItem(nodeId, !isSelected)} />{item.read}</>}
     >
       <PermissionByType
         id={permissionId}
@@ -66,7 +67,7 @@ class TreeView extends React.PureComponent {
   }
 
   onToggle = (event, nodeIds) => {
-    this.setState(state => ({...state, expanded: nodeIds }));
+    this.setState(state => ({ ...state, expanded: nodeIds }));
   };
 
   onNodeSelect = (event, nodeIds) => {
@@ -75,9 +76,9 @@ class TreeView extends React.PureComponent {
 
   onSelectItem = (id, newStatus) => () => {
     const stateSelected = this.state.selected;
-    
+
     if (newStatus) {
-      return this.setState(state => ({ ...state, selected: [...stateSelected, id]}))
+      return this.setState(state => ({ ...state, selected: [...stateSelected, id] }))
     } else {
       const index = stateSelected.findIndex(id);
       return this.setState(state => ({ ...state, selected: stateSelected.splice(index, 1) }))
@@ -85,11 +86,11 @@ class TreeView extends React.PureComponent {
   };
 
   render() {
-    const { permissions,  selected } = this.state;
+    const { permissions, selected } = this.state;
 
     return (
       <BasicTreeView
-        defaultCollapseIcon={<ExpandMoreIcon color="primary"/>}
+        defaultCollapseIcon={<ExpandMoreIcon color="primary" />}
         defaultExpandIcon={<ChevronRightIcon color="primary" />}
         expanded={this.state.expanded}
         selected={selected}
@@ -104,13 +105,13 @@ class TreeView extends React.PureComponent {
           const isSelected = !isEmpty(selected[nodeId]);
           const children = role.children;
 
-          if(isEmpty(children)) {
+          if (isEmpty(children)) {
             return (
               <TreeItem
                 key={`tree-${index}`}
                 hide={isEmpty(item.read)}
                 nodeId={nodeId}
-                label={<><CheckBox checked={isSelected[nodeId]} onClick={this.onSelectItem(nodeId, !isSelected)}/>{item.read}</>}
+                label={<><CheckBox checked={isSelected[nodeId]} onClick={this.onSelectItem(nodeId, !isSelected)} />{item.read}</>}
               />
             );
           } else {
@@ -118,10 +119,17 @@ class TreeView extends React.PureComponent {
               <TreeItem
                 key={`tree-${index}`}
                 nodeId={nodeId}
-                label={<><CheckBox checked={isSelected[[nodeId]]} onClick={this.onSelectItem(nodeId, !isSelected)}/>{item.read}</>}
+                label={<><CheckBox checked={isSelected[[nodeId]]} onClick={this.onSelectItem(nodeId, !isSelected)} />{item.read}</>}
               >
-                { children.map((child, childIndex)=> {
-                  return <PermissionItem key={`tree-child-${index}-${childIndex}`} selected={selected} permission={child} onSelectItem={this.onSelectItem} />
+                {children.map((child, childIndex) => {
+                  return (
+                    <PermissionItem
+                      key={`tree-child-${index}-${childIndex}`}
+                      selected={selected}
+                      permission={child}
+                      onSelectItem={this.onSelectItem}
+                    />
+                  );
                 })}
               </TreeItem>
             );
