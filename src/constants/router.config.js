@@ -1,8 +1,6 @@
 import React from "react";
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import SettingsIcon from "@material-ui/icons/Settings";
-import AllInboxIcon from "@material-ui/icons/AllInbox";
-import HomeContainer from "../screens/HomeScreen";
 import ErrorPageContainer from "../screens/ErrorPageScreen";
 import ElementContainer from "../screens/ElementScreen";
 
@@ -13,7 +11,7 @@ const routerConfig = [
     permissionType: 'read',
     icon: <DashboardIcon />,
     title: '主目录',
-    component: HomeContainer,
+    component: ElementContainer,
     path: '/'
   },
   {

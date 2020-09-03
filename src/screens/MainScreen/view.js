@@ -4,7 +4,6 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import PrivateRoute from '~/components/PrivateRoute';
 import PublicRoute from '~/components/PublicRoute';
 import ErrorPage from '../ErrorPageScreen';
-import HomeScreen from '../HomeScreen';
 import ElementScreen from "../ElementScreen";
 import LoginScreen from '../LoginScreen';
 import AccountScreen from '../AccountScreen';
