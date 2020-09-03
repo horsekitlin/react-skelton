@@ -1,5 +1,5 @@
 
-export const PERMISSON_LABEL_MAPPING = {
+export const PERMISSION_LABEL_MAPPING = {
   1: {
     'read': 'dashboard',
     'add': '',

@@ -6,7 +6,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import CheckBox from '../CheckBox';
 import isEmpty from 'lodash/isEmpty';
 import TreeItem from '../TreeItem';
-import { PERMISSON_LABEL_MAPPING, ROLES_PERMISSIONS } from './mock';
+import { PERMISSION_LABEL_MAPPING, ROLES_PERMISSIONS } from './mock';
 
 const PermissionByType = ({ id, item, selected, onSelectItem }) => {
   const permissionTypes = ['add', 'edit', 'delete'];
@@ -26,7 +26,7 @@ const PermissionByType = ({ id, item, selected, onSelectItem }) => {
 
 const PermissionItem = ({ selected, permission, onSelectItem }) => {
   const permissionId = permission.id;
-  const item = PERMISSON_LABEL_MAPPING[permissionId];
+  const item = PERMISSION_LABEL_MAPPING[permissionId];
   const nodeId = `${permissionId}`;
   const isSelected = !isEmpty(selected[nodeId]);
 
@@ -38,7 +38,7 @@ const PermissionItem = ({ selected, permission, onSelectItem }) => {
     >
       <PermissionByType
         id={permissionId}
-        item={PERMISSON_LABEL_MAPPING[permissionId]}
+        item={PERMISSION_LABEL_MAPPING[permissionId]}
         selected={selected}
         onSelectItem={onSelectItem}
       />
@@ -100,7 +100,7 @@ class TreeView extends React.PureComponent {
       >
         {permissions.map((role, index) => {
           const permissionId = role.id;
-          const item = PERMISSON_LABEL_MAPPING[permissionId];
+          const item = PERMISSION_LABEL_MAPPING[permissionId];
           const nodeId = `${permissionId}`;
           const isSelected = !isEmpty(selected[nodeId]);
           const children = role.children;
