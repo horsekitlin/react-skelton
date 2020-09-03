@@ -74,7 +74,6 @@ class TreeView extends React.PureComponent {
   };
 
   onSelectItem = (id, newStatus) => () => {
-    console.log("TreeView -> onSelectItem -> id", id)
     const stateSelected = this.state.selected;
     
     if (newStatus) {
@@ -98,15 +97,17 @@ class TreeView extends React.PureComponent {
         onNodeSelect={this.onNodeSelect}
         multiSelect
       >
-        {permissions.map(role => {
+        {permissions.map((role, index) => {
           const permissionId = role.id;
           const item = PERMISSON_LABEL_MAPPING[permissionId];
           const nodeId = `${permissionId}`;
           const isSelected = !isEmpty(selected[nodeId]);
           const children = role.children;
+
           if(isEmpty(children)) {
             return (
               <TreeItem
+                key={`tree-${index}`}
                 hide={isEmpty(item.read)}
                 nodeId={nodeId}
                 label={<><CheckBox checked={isSelected[nodeId]} onClick={this.onSelectItem(nodeId, !isSelected)}/>{item.read}</>}
@@ -115,11 +116,12 @@ class TreeView extends React.PureComponent {
           } else {
             return (
               <TreeItem
+                key={`tree-${index}`}
                 nodeId={nodeId}
                 label={<><CheckBox checked={isSelected[[nodeId]]} onClick={this.onSelectItem(nodeId, !isSelected)}/>{item.read}</>}
               >
-                { children.map(child=> {
-                  return <PermissionItem selected={selected} permission={child} onSelectItem={this.onSelectItem} />
+                { children.map((child, childIndex)=> {
+                  return <PermissionItem key={`tree-child-${index}-${childIndex}`} selected={selected} permission={child} onSelectItem={this.onSelectItem} />
                 })}
               </TreeItem>
             );
