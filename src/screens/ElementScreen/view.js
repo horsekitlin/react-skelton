@@ -28,6 +28,7 @@ const tableDatas = [
 const ElementScreen = ({ isLoading }) => {
   const [state, setState] = useState({
     successSnack: false,
+    errorSnack: false,
   })
   if (isLoading) return <CircularProgress />;
 
@@ -81,20 +82,20 @@ const ElementScreen = ({ isLoading }) => {
           </Panel>
         </Box>
 
-        <Box mt={5} p={2} display='flex' flexDirection='column' justifyContent='flex-start' border='1px solid lightgrey' >
-          <Box>
+        <Box mt={5} p={2} display='flex' flexDirection='row' justifyContent='flex-start' border='1px solid lightgrey' >
+          <Box paddingX={2}>
             <Button text="open success snackbar" onClick={() => {
               setState(state => ({ ...state, successSnack: true }));
               setTimeout(() => setState(state => ({ ...state, successSnack: false })), 1000)
             }} />
             <Snackbar open={state.successSnack} message="success snack" />
           </Box>
-          <Box>
-            <Button text="open success snackbar" onClick={() => {
-              setState(state => ({ ...state, successSnack: true }));
-              setTimeout(() => setState(state => ({ ...state, successSnack: false })), 1000)
+          <Box paddingX={2}>
+            <Button color='secondary' text="open error snackbar" onClick={() => {
+              setState(state => ({ ...state, errorSnack: true }));
+              setTimeout(() => setState(state => ({ ...state, errorSnack: false })), 1000)
             }} />
-            <Snackbar open={state.successSnack} message="success snack" />
+            <Snackbar level='error' vertical='top' horizontal='left' open={state.errorSnack} message="error snack" />
           </Box>
         </Box>
 
