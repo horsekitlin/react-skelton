@@ -74,7 +74,8 @@ class TreeView extends React.PureComponent {
     this.setState(state => ({ ...state, selected: nodeIds }));
   };
 
-  onSelectItem = (id, newStatus) => () => {
+  onSelectItem = (id, newStatus) => (event) => {
+    event.stopPropagation()
     const stateSelected = this.state.selected;
 
     if (newStatus) {
