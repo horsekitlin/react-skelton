@@ -36,7 +36,7 @@ const ElementScreen = ({ isLoading }) => {
             <TextButton color='secondary' text='Text Button' />
           </Box>
           <DateRange onDateChange={()=>{}} />
-          <Selector defaultValue={1} value={1} datas={[]} />
+          <Selector />
           <Checkbox checked label='check box' />
           <Switch checked label='switch' />
           <Radio checked label='radio'/>

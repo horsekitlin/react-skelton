@@ -21,11 +21,14 @@ const Selector = ({ datas, ...props}) => {
 };
 
 Selector.propTypes = {
-  value: propTypes.number,
+  value: propTypes.oneOfType([
+    propTypes.oneOf([null]),
+    propTypes.number,
+  ]),
   onChange: propTypes.func,
 };
 
-Selector.defaultPrsops = {
+Selector.defaultProps = {
   datas: defaultData,
   onChange: () => {},
 };
