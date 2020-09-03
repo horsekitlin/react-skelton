@@ -4,8 +4,7 @@ import { withStyles } from '@material-ui/core';
 const styles = theme => ({
 
   panelBody: {
-    marginLeft: -25,
-    marginRight: -25,
+    marginTop: theme.spacing(2),
     overflowX: 'auto',
   }
 })
