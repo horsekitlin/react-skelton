@@ -1,5 +1,5 @@
-import LoginScene from '../components/LoginScene';
-import { handleLogin } from '../actions/user';
+import LoginScene from './view';
+import { handleLogin } from '../../actions/user';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 

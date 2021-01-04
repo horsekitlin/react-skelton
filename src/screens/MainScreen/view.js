@@ -1,6 +1,7 @@
 import React from 'react';
-import Home from '../HomeScene';
+import Home from '../HomeScreen/view';
 
+const MainScene = () => ()
 class MainScene extends React.Component {
   render() {
     const {currentPage} = this.props.route;

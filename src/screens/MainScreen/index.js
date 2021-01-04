@@ -1,4 +1,4 @@
-import Main from '../components/MainScene';
+import MainScreen from './view';
 import { connect } from 'react-redux';
 
 const mapStateToProps = ({ user, route }) => ({
@@ -9,5 +9,5 @@ const mapStateToProps = ({ user, route }) => ({
 const mapDispatchToProps = dispatch => ({
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);
 
