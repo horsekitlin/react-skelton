@@ -1,9 +1,22 @@
 import constants from 'flux-constants';
 
-export default constants([
+const syncActionTypes = [
+
+];
+
+const basicAsyncActionTypes = [
   'LOGIN',
-  'LOGIN_SUCCESS',
-  'LOGIN_ERROR',
   'LOGOUT',
-  'HANDLE_SIDEBAR'
-]);
+];
+
+
+const asyncActionTypes = basicAsyncActionTypes.reduce((result, actionType) => {
+  return [
+    ...result,
+    actionType,
+    `${actionType}_SUCCESS`,
+    `${actionType}_ERROR`
+  ];
+}, []);
+
+export default constants([...asyncActionTypes, ...syncActionTypes]);

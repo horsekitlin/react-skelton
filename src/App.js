@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
-import Login from './containers/LoginContainer';
-import Main from './containers/MainContainer';
-class App extends Component {
-  render() {
-    return this.props.user.login.ok
-      ? <Main />
-      : <Login />
-    
-  }
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HomeScene from './screens/HomeScreen';
+import SignInScreen from './screens/SignInScreen';
+
+const App = () => {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/singin" component={SignInScreen} />
+        <Route exact path="/" component={HomeScene} />
+        <Route component={() => <div>404</div>} />
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;

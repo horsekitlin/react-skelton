@@ -1,4 +1,4 @@
-import LoginScene from './view';
+import SignInScreen from './view';
 import { handleLogin } from '../../actions/user';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -12,5 +12,5 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(LoginScene)
+  connect(mapStateToProps, mapDispatchToProps)(SignInScreen)
 );
