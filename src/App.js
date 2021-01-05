@@ -1,17 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import HomeScene from './screens/HomeScreen';
-import SignInScreen from './screens/SignInScreen';
+import React, { Fragment } from 'react';
+import { useRoutes } from 'react-router-dom';
+import routes from './routes';
 
 const App = () => {
+  const routing = useRoutes(routes);
+  console.log('🚀 ~ file: App.js ~ line 7 ~ App ~ routing', routing)
+
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/singin" component={SignInScreen} />
-        <Route exact path="/" component={HomeScene} />
-        <Route component={() => <div>404</div>} />
-      </Switch>
-    </Router>
+    <div>
+      {routing}
+    </div>
   );
 }
 
