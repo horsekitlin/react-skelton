@@ -1,4 +1,4 @@
-import types from "../constants/actionTypes";
+import types from "constants/actionTypes";
 
 export const handleLogin = payload => ({
   type: types.LOGIN,

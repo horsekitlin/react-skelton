@@ -1,5 +1,5 @@
 import { put, call } from 'redux-saga/effects';
-import types from "../constants/actionTypes";
+import types from "constants/actionTypes";
 
 const mockLogin = () => new Promise(resolve =>
   setTimeout(() => {

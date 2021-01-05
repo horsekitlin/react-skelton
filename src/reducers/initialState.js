@@ -1,4 +1,4 @@
-export default {
+const initialState = {
   route: {
     currentPage: 'Home'
   },
@@ -8,3 +8,5 @@ export default {
     }
   }
 };
+
+export default initialState;

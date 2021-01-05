@@ -1,5 +1,5 @@
 import SignInScreen from './view';
-import { handleLogin } from '../../actions/user';
+import { handleLogin } from 'actions/userActions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 

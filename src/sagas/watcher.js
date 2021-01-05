@@ -1,4 +1,4 @@
-import types from "../constants/actionTypes";
+import types from "constants/actionTypes";
 import { takeLatest } from 'redux-saga/effects';
 import { loginSaga } from './user';
 

@@ -1,7 +1,7 @@
 import initialState from './initialState';
-import types from '../constants/actionTypes';
+import types from 'constants/actionTypes';
 
-export default function(user = initialState.user, { type, payload }) {
+export default function userReducer(user = initialState.user, { type, payload }) {
   switch (type) {
     case types.LOGIN_SUCCESS:
       return {
