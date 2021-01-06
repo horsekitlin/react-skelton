@@ -10,8 +10,10 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+import { useDispatch } from 'react-redux'
+import { signInAction } from 'actions/authActions';
 
 function Copyright() {
   return (
@@ -46,8 +48,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const getHandlers = (dispatch) => {
+  return {
+    handleSignIn: signInAction(dispatch),
+  }
+};
+
 const SignInScreen = () => {
   const classes = useStyles();
+  const dispatch = useDispatch()
+  const { handleSignIn } = getHandlers(dispatch);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -59,7 +69,10 @@ const SignInScreen = () => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={(e) => {
+          e.preventDefault();
+          handleSignIn();
+          }}>
           <TextField
             variant="outlined"
             margin="normal"

@@ -7,21 +7,29 @@ const mockLogin = () => new Promise(resolve =>
   }, 1000)
 );
 
-export function* loginSaga({ payload }) {
+const okSignIn = () => {  
+  return {
+    type: types.SIGN_IN_SUCCESS,
+    payload: {
+      isAuth: true
+    }
+  };
+}
+
+const errSignIn = () => {
+  return {
+    type: types.SIGN_IN_ERROR,
+    payload: {
+      isAuth: true
+    }
+  };
+};
+
+export function* loginSaga() {
   try {
     yield call(mockLogin);
-    yield put({
-      type: types.LOGIN_SUCCESS,
-      payload: {
-        ok: true
-      }
-    });
+    yield put(okSignIn());
   } catch (error) {
-    yield put({
-      type: types.LOGIN,
-      payload: {
-        ok: false
-      }
-    });
+    yield put(errSignIn(error));
   }
 }

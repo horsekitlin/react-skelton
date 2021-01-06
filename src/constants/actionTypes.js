@@ -5,8 +5,8 @@ const syncActionTypes = [
 ];
 
 const basicAsyncActionTypes = [
-  'LOGIN',
-  'LOGOUT',
+  'SIGN_IN',
+  'SIGN_OUT',
 ];
 
 

@@ -3,5 +3,5 @@ import { takeLatest } from 'redux-saga/effects';
 import { loginSaga } from './user';
 
 export function* watchLogin() {
-  yield takeLatest(types.LOGIN, loginSaga);
+  yield takeLatest(types.SIGN_IN, loginSaga);
 }
