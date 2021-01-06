@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
+import Box from '@material-ui/core/Box';
+import Badge from '@material-ui/core/Badge';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
 import {
-  AppBar,
-  Badge,
-  Box,
-  Hidden,
-  IconButton,
-  Toolbar,
   makeStyles
 } from '@material-ui/core';
+
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
-import InputIcon from '@material-ui/icons/Input';
-// import Logo from 'components/Logo';
+import IconMenu from './IconMenu';
 
 const useStyles = makeStyles(() => ({
   root: {},
@@ -39,23 +38,8 @@ const TopBar = ({
       {...rest}
     >
       <Toolbar>
-        <RouterLink to="/">
-          {/* <Logo /> */}
-        </RouterLink>
-        <Box flexGrow={1} />
         <Hidden mdDown>
-          <IconButton color="inherit">
-            <Badge
-              badgeContent={notifications.length}
-              color="primary"
-              variant="dot"
-            >
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
-          <IconButton color="inherit">
-            <InputIcon />
-          </IconButton>
+          <MenuIcon />
         </Hidden>
         <Hidden lgUp>
           <IconButton
@@ -65,6 +49,17 @@ const TopBar = ({
             <MenuIcon />
           </IconButton>
         </Hidden>
+        <Box flexGrow={1} />
+        <IconButton color="inherit">
+          <Badge
+            badgeContent={notifications.length}
+            color="primary"
+            variant="dot"
+          >
+            <NotificationsIcon />
+          </Badge>
+        </IconButton>
+        <IconMenu />
       </Toolbar>
     </AppBar>
   );

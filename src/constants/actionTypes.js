@@ -1,12 +1,11 @@
 import constants from 'flux-constants';
 
 const syncActionTypes = [
-
+  'SIGN_OUT',
 ];
 
 const basicAsyncActionTypes = [
-  'SIGN_IN',
-  'SIGN_OUT',
+  'SIGN_IN',  
 ];
 
 

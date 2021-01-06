@@ -1,5 +1,4 @@
 import types from "constants/actionTypes";
-console.log('🚀 ~ file: authActions.js ~ line 2 ~ types', types)
 
 export const signInAction = (dispatch) =>
   payload =>
@@ -7,3 +6,10 @@ export const signInAction = (dispatch) =>
       type: types.SIGN_IN,
       payload
     });
+
+export const signOutAction = (dispatch) =>
+    payload =>
+      dispatch({
+        type: types.SIGN_OUT,
+        payload
+      });

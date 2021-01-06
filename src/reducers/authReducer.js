@@ -3,6 +3,8 @@ import initialState from './initialState';
 
 export default function routeReducer(auth = initialState.auth, { type, payload }) {
   switch (type) {
+    case types.SIGN_OUT:
+      return { ...auth, isAuth: false }
     case types.SIGN_IN_SUCCESS:
       return { ...auth, isAuth: true }
     case types.SIGN_IN:
