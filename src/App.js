@@ -1,7 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
-import { useRoutes } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { useSelector } from 'react-redux';
+import { useRoutes } from 'react-router-dom';
+import LoadingMask from 'components/LoadingMask';
 import { authRoutes, noAuthRoutes } from './routes';
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
   return (
     <div>
       <CssBaseline />
+      <LoadingMask />
       {routing}
     </div>
   );

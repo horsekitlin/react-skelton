@@ -1,10 +1,12 @@
 import constants from 'flux-constants';
 
-const syncActionTypes = [
+export const syncActionTypes = [
+  'START_FETCHING',
+  'STOP_FETCHING',
   'SIGN_OUT',
 ];
 
-const basicAsyncActionTypes = [
+export const basicAsyncActionTypes = [
   'SIGN_IN',  
 ];
 

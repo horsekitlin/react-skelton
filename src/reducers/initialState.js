@@ -1,7 +1,13 @@
+const authState = {
+  isAuth: false,
+};
+
+const settingState = {
+  fetchingTypes: {}
+};
 const initialState = {
-  auth: {
-    isAuth: false,
-  },
+  auth: authState,
+  setting: settingState,
 };
 
 export default initialState;

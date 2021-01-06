@@ -48,7 +48,7 @@ const Sales = ({ className, ...rest }) => {
     maintainAspectRatio: false,
     responsive: true,
     scales: {
-      xAxes: [
+      dataset: [
         {
           barThickness: 12,
           maxBarThickness: 10,
