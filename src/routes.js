@@ -11,7 +11,7 @@ import ProductsScreen from 'screens/ProductsScreen';
 import SignUpScreen from 'screens/SignUpScreen';
 import SettingScreen from 'screens/SettingScreen';
 
-const routes = [
+export const authRoutes = [
   {
     path: 'app',
     element: <DashboardLayout />,
@@ -21,7 +21,30 @@ const routes = [
       { path: 'customers', element: <CustomersScreen /> },
       { path: 'products', element: <ProductsScreen /> },
       { path: 'settings', element: <SettingScreen /> },
+      { path: '404', element: <NotFoundScreen /> },
+      { path: '/', element: <Navigate to="/app/board" /> },
       { path: '*', element: <Navigate to="/404" />  }
+    ]
+  },
+  {
+    path: '/',
+    element: <DashboardLayout />,
+    children: [
+      { path: 'signin', element: <Navigate to="/app/board" /> },
+      { path: 'signup', element: <Navigate to="/app/board" /> },
+      { path: '404', element: <NotFoundScreen /> },
+      { path: '/', element: <Navigate to="/app/board" /> },
+      { path: '*', element: <Navigate to="/404" /> }
+    ]
+  }
+];
+
+export const noAuthRoutes = [
+  {
+    path: 'app',
+    element: <Navigate to="/signin" />,
+    children: [
+      { path: '*', element: <Navigate to="/signin" />  }
     ]
   },
   {
@@ -31,10 +54,8 @@ const routes = [
       { path: 'signin', element: <SignInScreen /> },
       { path: 'signup', element: <SignUpScreen /> },
       { path: '404', element: <NotFoundScreen /> },
-      { path: '/', element: <Navigate to="/app/dashboard" /> },
+      { path: '/', element: <Navigate to="/signin" /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   }
 ];
-
-export default routes;

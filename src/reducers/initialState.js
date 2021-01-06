@@ -1,12 +1,7 @@
 const initialState = {
-  route: {
-    currentPage: 'Home'
+  auth: {
+    isAuth: false,
   },
-  user: {
-    login: {
-      ok: false
-    }
-  }
 };
 
 export default initialState;
