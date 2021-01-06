@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import DashboardLayout from 'layouts/DashboardLayout';
 import MainLayout from 'layouts/MainLayout';
 // import AccountView from 'src/views/account/AccountView';
-// import CustomerListView from 'src/views/customer/CustomerListView';
+import CustomersScreen from 'screens/CustomersScreen';
 import DashboardScreen from 'screens/DashboardScreen';
 import SignInScreen from 'screens/SignInScreen';
 import NotFoundScreen from 'screens/NotFoundScreen';
@@ -18,7 +18,7 @@ const routes = [
     children: [
       { path: 'dashboard', element: <DashboardScreen /> },
       // { path: 'account', element: <AccountView /> },
-      // { path: 'customers', element: <CustomerListView /> },
+      { path: 'customers', element: <CustomersScreen /> },
       // { path: 'products', element: <ProductListView /> },
       // { path: 'settings', element: <SettingsView /> },
       { path: '*', element: <Navigate to="/404" />  }
