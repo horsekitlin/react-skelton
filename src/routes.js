@@ -5,10 +5,10 @@ import MainLayout from 'layouts/MainLayout';
 // import AccountView from 'src/views/account/AccountView';
 // import CustomerListView from 'src/views/customer/CustomerListView';
 import DashboardScreen from 'screens/DashboardScreen';
-// import LoginView from 'src/views/auth/LoginView';
+import SignInScreen from 'screens/SignInScreen';
 import NotFoundScreen from 'screens/NotFoundScreen';
 // import ProductListView from 'src/views/product/ProductListView';
-// import RegisterView from 'src/views/auth/RegisterView';
+import SignUpScreen from 'screens/SignUpScreen';
 // import SettingsView from 'src/views/settings/SettingsView';
 
 const routes = [
@@ -28,8 +28,8 @@ const routes = [
     path: '/',
     element: <MainLayout />,
     children: [
-      // { path: 'login', element: <LoginView /> },
-      // { path: 'register', element: <RegisterView /> },
+      { path: 'signin', element: <SignInScreen /> },
+      { path: 'signup', element: <SignUpScreen /> },
       { path: '404', element: <NotFoundScreen /> },
       // { path: '/', element: <Navigate to="/app/dashboard" /> },
       { path: '*', element: <Navigate to="/404" /> }

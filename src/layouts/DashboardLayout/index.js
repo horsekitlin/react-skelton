@@ -47,6 +47,7 @@ const DashboardLayout = () => {
     if(paths.length === 1) {
       navigate('/app/dashboard');
     }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

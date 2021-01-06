@@ -42,6 +42,7 @@ const MainLayout = () => {
     if(paths.length === 0) {
       navigate('/app');
     }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return (
