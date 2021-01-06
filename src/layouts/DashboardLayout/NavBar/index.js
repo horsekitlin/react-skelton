@@ -174,8 +174,9 @@ const NavBar = ({ onMobileClose, openMobile }) => {
             component="a"
             href="https://react-material-kit.devias.io"
             variant="contained"
+            target='_blank'
           >
-            See PRO version
+            Link
           </Button>
         </Box>
       </Box>
