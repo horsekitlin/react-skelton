@@ -7,7 +7,7 @@ import CustomersScreen from 'screens/CustomersScreen';
 import DashboardScreen from 'screens/DashboardScreen';
 import SignInScreen from 'screens/SignInScreen';
 import NotFoundScreen from 'screens/NotFoundScreen';
-// import ProductListView from 'src/views/product/ProductListView';
+import ProductsScreen from 'screens/ProductsScreen';
 import SignUpScreen from 'screens/SignUpScreen';
 // import SettingsView from 'src/views/settings/SettingsView';
 
@@ -19,7 +19,7 @@ const routes = [
       { path: 'dashboard', element: <DashboardScreen /> },
       // { path: 'account', element: <AccountView /> },
       { path: 'customers', element: <CustomersScreen /> },
-      // { path: 'products', element: <ProductListView /> },
+      { path: 'products', element: <ProductsScreen /> },
       // { path: 'settings', element: <SettingsView /> },
       { path: '*', element: <Navigate to="/404" />  }
     ]
