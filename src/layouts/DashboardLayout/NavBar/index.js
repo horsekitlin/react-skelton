@@ -27,7 +27,7 @@ import NavItem from './NavItem';
 const user = {
   avatar: '/static/images/avatars/avatar_6.png',
   jobTitle: 'Senior Developer',
-  name: 'Katarina Smith'
+  name: 'Tomas Lin'
 };
 
 const items = [
@@ -57,12 +57,12 @@ const items = [
     title: 'Settings'
   },
   {
-    href: '/login',
+    href: '/signin',
     icon: LockIcon,
     title: 'Login'
   },
   {
-    href: '/register',
+    href: '/signup',
     icon: UserPlusIcon,
     title: 'Register'
   },
