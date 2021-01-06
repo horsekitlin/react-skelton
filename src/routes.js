@@ -9,7 +9,7 @@ import SignInScreen from 'screens/SignInScreen';
 import NotFoundScreen from 'screens/NotFoundScreen';
 import ProductsScreen from 'screens/ProductsScreen';
 import SignUpScreen from 'screens/SignUpScreen';
-// import SettingsView from 'src/views/settings/SettingsView';
+import SettingScreen from 'screens/SettingScreen';
 
 const routes = [
   {
@@ -20,7 +20,7 @@ const routes = [
       { path: 'account', element: <AccountsScreen /> },
       { path: 'customers', element: <CustomersScreen /> },
       { path: 'products', element: <ProductsScreen /> },
-      // { path: 'settings', element: <SettingsView /> },
+      { path: 'settings', element: <SettingScreen /> },
       { path: '*', element: <Navigate to="/404" />  }
     ]
   },
