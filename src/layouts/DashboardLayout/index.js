@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import isEmpty from 'lodash/isEmpty';
 import { Outlet } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
+import { useLocation, useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import TopBar from './TopBar';
 
@@ -36,6 +38,16 @@ const useStyles = makeStyles((theme) => ({
 const DashboardLayout = () => {
   const classes = useStyles();
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const paths = location.pathname.split('/').filter(str => !isEmpty(str));
+
+  useEffect(() => {
+    if(paths.length === 1) {
+      navigate('/app/dashboard');
+    }
+  }, []);
 
   return (
     <div className={classes.root}>

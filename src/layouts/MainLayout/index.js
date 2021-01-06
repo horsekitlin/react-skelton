@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import isEmpty from 'lodash/isEmpty';
 import { Outlet } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
+import { useLocation, useNavigate } from 'react-router-dom';
 import TopBar from './TopBar';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,7 +33,17 @@ const useStyles = makeStyles((theme) => ({
 
 const MainLayout = () => {
   const classes = useStyles();
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  const paths = location.pathname.split('/').filter(str => !isEmpty(str));
+
+  useEffect(() => {
+    if(paths.length === 0) {
+      navigate('/app');
+    }
+  }, []);
+  
   return (
     <div className={classes.root}>
       <TopBar />
