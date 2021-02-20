@@ -1,3 +1,4 @@
+/* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default (name = '') => name
   .replace(/\s+/, ' ')
   .split(' ')

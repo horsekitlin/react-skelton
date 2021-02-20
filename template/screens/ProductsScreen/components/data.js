@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 
-export default [
+const mockData =  [
   {
     id: uuid(),
     createdAt: '27/03/2019',
@@ -50,3 +50,4 @@ export default [
     totalDownloads: '835'
   }
 ];
+export default mockData;

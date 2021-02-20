@@ -1,1 +1,1 @@
-# React-Skelton
+# React Skeleton
