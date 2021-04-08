@@ -12,7 +12,7 @@ cd ..
 
 rm -rf template lastest README.md 
 
-mv ./$PROJ_NAME/** .
-mv ./$PROJ_NAME/.gitignore .
+mv ./$PROJ_NAME/admin/** .
+mv ./$PROJ_NAME/admin/.* .
 
 rmdir $PROJ_NAME
