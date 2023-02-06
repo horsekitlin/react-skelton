@@ -1,21 +1,25 @@
-import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import { useSelector } from 'react-redux';
-import { useRoutes } from 'react-router-dom';
-import LoadingMask from 'components/LoadingMask';
-import { authRoutes, noAuthRoutes } from './routes';
+import { ThemeProvider } from "@mui/material/styles";
 
-const App = () => {
-  const isAuth = useSelector(({ auth }) => auth.isAuth);
-  const routers = isAuth? authRoutes: noAuthRoutes;
-  const routing = useRoutes(routers);
-  
+
+// routing
+import Routes from "./routes";
+
+// defaultTheme
+import themes from "./themes";
+
+// project imports
+import NavigationScroll from "./layout/NavigationScroll";
+
+function App() {
+  const customization = useSelector((state) => state.customization);
+
   return (
-    <div>
-      <CssBaseline />
-      <LoadingMask />
-      {routing}
-    </div>
+      <ThemeProvider theme={themes(customization)}>
+        <NavigationScroll>
+          <Routes />
+        </NavigationScroll>
+      </ThemeProvider>
   );
 }
 
