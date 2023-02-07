@@ -1,0 +1,28 @@
+name: test-and-deploy-to-dev
+
+on:
+  pull_request:
+    types: 
+      - merged
+    branches:
+      - develop
+
+jobs:
+  do-deployment:
+    if: github.event.pull_request.merged == true
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.15.1
+      - name: Install Packages
+        run: yarn install
+      - name: create env file
+        run: echo "${{ secrets.DEV_ENV }}" > ./.env
+      - name: build web app
+        run: yarn build
+      - name: ssh and copy file to server
+        run: scp -r ./build/** ${{ secrets.DEV_USER_NAME }}@${{ secrets.DEV_HOST }}:${{ secrets.TARGET }}
