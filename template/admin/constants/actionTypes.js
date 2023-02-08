@@ -8,7 +8,9 @@ const syncActionTypes = [
   'CUSTOMIZATION_SET_BORDER_RADIUS',
 ];
 
-export const basicAsyncActionTypes = [];
+export const basicAsyncActionTypes = [
+  'SIGN_IN',
+];
 
 export const asyncActionTypes = basicAsyncActionTypes.reduce((result, actionType) => {
   return [
