@@ -1,17 +1,17 @@
-import types from '~/constants/actionTypes';
-import {authState} from './initialState';
+import types from "constants/actionTypes";
+import initialState from "./initialState";
 
-const loginSuccess = (auth, payload) => ({
+const loginSuccess = (auth) => ({
   ...auth,
-  ...payload.data,
   isAuth: true,
 });
 
-export default function reducer(auth = {...authState}, {type, payload}) {
+export default function reducer(auth = { ...initialState.authState }, { type, payload }) {
   switch (type) {
-    case types.LOGIN_SUCCESS:
-      return loginSuccess(auth, payload);
-    case types.LOGIN:
+    case types.SIGN_IN_SUCCESS:
+      return loginSuccess(auth);
+    case types.SIGN_IN:
+    case types.SIGN_IN_ERROR:
     default:
       return auth;
   }
