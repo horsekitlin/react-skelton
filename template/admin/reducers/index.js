@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
+import auth from './authReducer';
 import customization from './customizationReducer';
 
 const appReducer = combineReducers({
+  auth,
   customization,
 });
 

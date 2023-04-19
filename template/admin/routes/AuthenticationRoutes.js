@@ -15,11 +15,11 @@ const AuthenticationRoutes = {
     element: <MinimalLayout />,
     children: [
         {
-            path: '/pages/login/login3',
+            path: '/login',
             element: <LoginScreen />
         },
         {
-            path: '/pages/register/register3',
+            path: '/register',
             element: <RegisterScreen />
         }
     ]

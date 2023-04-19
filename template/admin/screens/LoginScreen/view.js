@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 // material-ui
 import { useTheme } from "@mui/material/styles";
@@ -15,10 +15,11 @@ import AuthFooter from "ui-component/cards/AuthFooter";
 
 // ================================|| AUTH3 - LOGIN ||================================ //
 
-const LoginScreen = () => {
+const LoginScreen = (props) => {
   const theme = useTheme();
   const matchDownSM = useMediaQuery(theme.breakpoints.down("md"));
 
+  if (props.isAuth) return <Navigate to="/" replace />;
   return (
     <AuthWrapper1>
       <Grid

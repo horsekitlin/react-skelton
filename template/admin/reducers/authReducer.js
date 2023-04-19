@@ -6,7 +6,7 @@ const loginSuccess = (auth) => ({
   isAuth: true,
 });
 
-export default function reducer(auth = { ...initialState.authState }, { type, payload }) {
+export default function reducer(auth = { ...initialState.auth }, { type, payload }) {
   switch (type) {
     case types.SIGN_IN_SUCCESS:
       return loginSuccess(auth);

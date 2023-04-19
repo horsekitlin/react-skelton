@@ -1,7 +1,9 @@
 import { connect } from "react-redux";
 import LoginScreen from "./view";
 
-const mapStateToProps = () => ({});
+const mapStateToProps = ({auth}) => ({
+  isAuth: auth.isAuth,
+});
 
 const mapDispatchToProps = () => ({});
 
