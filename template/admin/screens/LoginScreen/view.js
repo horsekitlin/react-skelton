@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 // material-ui
 import { useTheme } from "@mui/material/styles";
@@ -8,17 +8,17 @@ import { Divider, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import AuthWrapper1 from "components/AuthWrapper1";
 import AuthCardWrapper from "components/AuthCardWrapper";
 import AuthLogin from "components/auth-forms/AuthLogin";
-import Logo from "ui-component/Logo";
 import AuthFooter from "ui-component/cards/AuthFooter";
 
 // assets
 
 // ================================|| AUTH3 - LOGIN ||================================ //
 
-const LoginScreen = () => {
+const LoginScreen = (props) => {
   const theme = useTheme();
   const matchDownSM = useMediaQuery(theme.breakpoints.down("md"));
 
+  if (props.isAuth) return <Navigate to="/" replace />;
   return (
     <AuthWrapper1>
       <Grid
@@ -42,11 +42,6 @@ const LoginScreen = () => {
                   alignItems="center"
                   justifyContent="center"
                 >
-                  <Grid item sx={{ mb: 3 }}>
-                    <Link to="#">
-                      <Logo />
-                    </Link>
-                  </Grid>
                   <Grid item xs={12}>
                     <Grid
                       container
@@ -79,7 +74,7 @@ const LoginScreen = () => {
                     </Grid>
                   </Grid>
                   <Grid item xs={12}>
-                    <AuthLogin />
+                    <AuthLogin handleSignIn={props.handleSignIn} />
                   </Grid>
                   <Grid item xs={12}>
                     <Divider />

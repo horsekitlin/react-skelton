@@ -22,6 +22,10 @@ cd ..
 echo "copy github action"
 cp -a template/.github .
 
+echo "copy envfile"
+cp -a template/admin/.env .
+cp -a template/admin/.env.example .
+
 rm -rf template lastest README.md 
 
 mv ./$PROJ_NAME/** .

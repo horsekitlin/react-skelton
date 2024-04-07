@@ -9,8 +9,15 @@ const customizationState = {
   opened: true,
 };
 
+
+const taskState = {
+  rows: [],
+  totalCount: 0,
+};
+
 const initialState = {
   auth: authState,
+  task: taskState,
   customization: customizationState,
 };
 

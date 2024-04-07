@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
 import customization from './customizationReducer';
+import task from './taskReducer';
+import auth from './authReducer';
 
 const appReducer = combineReducers({
+  task,
+  auth,
   customization,
 });
 

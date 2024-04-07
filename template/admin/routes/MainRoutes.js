@@ -3,6 +3,7 @@ import { lazy } from 'react';
 // project imports
 import MainLayout from 'layout/MainLayout';
 import Loadable from 'ui-component/Loadable';
+import ProtectedRoute from 'components/ProtectedRoute';
 
 // dashboard routing
 const DashboardDefault = Loadable(lazy(() => import('screens/DashboardScreen')));
@@ -17,6 +18,8 @@ const UtilsTablerIcons = Loadable(lazy(() => import('screens/UtilsTablerIconsScr
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('screens/SampleScreen')));
 
+const TaskScreen = Loadable(lazy(() => import('screens/TaskScreen')));
+
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -25,14 +28,18 @@ const MainRoutes = {
     children: [
         {
             path: '/',
-            element: <DashboardDefault />
+            element: <ProtectedRoute children={<DashboardDefault />} />
+        },
+        {
+            path: '/tasks',
+            element: <ProtectedRoute children={<TaskScreen />} />
         },
         {
             path: 'dashboard',
             children: [
                 {
                     path: 'default',
-                    element: <DashboardDefault />
+                    element: <ProtectedRoute children={<DashboardDefault />} />
                 }
             ]
         },
@@ -41,7 +48,7 @@ const MainRoutes = {
             children: [
                 {
                     path: 'util-typography',
-                    element: <UtilsTypography />
+                    element: <ProtectedRoute children={<UtilsTypography />} />
                 }
             ]
         },
@@ -50,11 +57,11 @@ const MainRoutes = {
             children: [
                 {
                     path: 'util-color',
-                    element: <UtilsColor />
+                    element: <ProtectedRoute children={<UtilsColor />} />
                 },
                 {
                     path: 'util-shadow',
-                    element: <UtilsShadow />
+                    element: <ProtectedRoute children={<UtilsShadow />} />
                 }
             ]
         },
@@ -63,17 +70,17 @@ const MainRoutes = {
             children: [
                 {
                     path: 'tabler-icons',
-                    element: <UtilsTablerIcons />
+                    element: <ProtectedRoute children={<UtilsTablerIcons />} />
                 },
                 {
                     path: 'material-icons',
-                    element: <UtilsMaterialIcons />
+                    element: <ProtectedRoute children={<UtilsMaterialIcons />} />
                 }
             ]
         },
         {
             path: 'sample-page',
-            element: <SamplePage />
+            element: <ProtectedRoute children={<SamplePage />} />
         }
     ]
 };

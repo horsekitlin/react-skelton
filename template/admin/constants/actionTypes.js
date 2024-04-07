@@ -10,6 +10,9 @@ const syncActionTypes = [
 
 export const basicAsyncActionTypes = [
   'SIGN_IN',
+  'GET_TASKS',
+  'CREATE_TASK',
+  'DELETE_TASK',
 ];
 
 export const asyncActionTypes = basicAsyncActionTypes.reduce((result, actionType) => {
