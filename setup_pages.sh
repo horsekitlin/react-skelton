@@ -217,70 +217,55 @@ echo "🏪 建立商家管理頁面..."
 cat > src/pages/MerchantsPage.tsx << 'EOF'
 // 商家管理頁面 - 遵循 SRP 原則，負責商家列表管理和篩選功能
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useMemo } from 'react'
 import {
   Box,
   Typography,
-  Paper,
   TextField,
   Select,
   MenuItem,
   FormControl,
   InputLabel,
-  Button,
   Card,
   CardContent,
-  CardActions,
   Chip,
   Rating,
-  IconButton,
-  Skeleton,
   InputAdornment,
-  Tooltip,
   Pagination,
+  Avatar,
 } from '@mui/material'
 import {
   Search as SearchIcon,
-  Add as AddIcon,
-  Edit as EditIcon,
-  Delete as DeleteIcon,
-  Visibility as ViewIcon,
   Phone as PhoneIcon,
   Email as EmailIcon,
   LocationOn as LocationIcon,
 } from '@mui/icons-material'
 import AppLayout from '../layouts/AppLayout'
-import { MOCK_MERCHANTS, MERCHANT_CATEGORIES, MERCHANT_STATUS_OPTIONS, getCategoryLabel, getStatusInfo, formatCurrency, formatDate, simulateApiDelay } from '../utils/mockData'
-import type { Merchant, MerchantFilters, PaginationState } from '../types'
+import { MOCK_MERCHANTS, MERCHANT_CATEGORIES, MERCHANT_STATUS_OPTIONS, getCategoryLabel, getStatusInfo, formatDate } from '../utils/mockData'
+import type { MerchantFilters } from '../types'
 
-// 每頁顯示的商家數量
-const PAGE_SIZE = 6
+// 自定義 useForm hook - 遵循 SRP 原則，專責表單狀態管理
+const useForm = (options: { initialValues: MerchantFilters }) => {
+  const [values, setValues] = useState<MerchantFilters>(options.initialValues)
 
-// 骨架屏組件 - 遵循單一職責原則，只負責載入狀態顯示
-const MerchantCardSkeleton: React.FC = () => (
-  <Card elevation={2}>
-    <CardContent>
-      <Box display="flex" justifyContent="space-between" alignItems="flex-start" mb={2}>
-        <Skeleton variant="text" width="60%" height={32} />
-        <Skeleton variant="rectangular" width={60} height={24} />
-      </Box>
-      <Skeleton variant="text" width="100%" height={20} />
-      <Skeleton variant="text" width="80%" height={20} />
-      <Box display="flex" alignItems="center" gap={1} mt={2}>
-        <Skeleton variant="circular" width={20} height={20} />
-        <Skeleton variant="text" width="40%" height={20} />
-      </Box>
-      <Box display="flex" justifyContent="space-between" mt={2}>
-        <Skeleton variant="text" width="30%" height={20} />
-        <Skeleton variant="text" width="30%" height={20} />
-      </Box>
-    </CardContent>
-    <CardActions>
-      <Skeleton variant="rectangular" width={80} height={32} />
-      <Skeleton variant="rectangular" width={80} height={32} />
-    </CardActions>
-  </Card>
-)
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = event.target
+    setValues(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSelectChange = (event: { target: { name: string; value: string } }) => {
+    const { name, value } = event.target
+    setValues(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  return { values, handleChange, handleSelectChange }
+}
 
 /**
  * 商家卡片組件
@@ -359,7 +344,7 @@ const MerchantsPage: React.FC = () => {
   const itemsPerPage = 6
 
   // 篩選表單
-  const { values: filters, handleChange } = useForm<MerchantFilters>({
+  const { values: filters, handleChange, handleSelectChange } = useForm({
     initialValues: {
       search: '',
       category: '',
@@ -405,60 +390,54 @@ const MerchantsPage: React.FC = () => {
         {/* 篩選控制項 */}
         <Card sx={{ mb: 3 }}>
           <CardContent>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={4}>
-                <TextField
-                  fullWidth
-                  name="search"
-                  label="搜尋商家"
-                  value={filters.search}
-                  onChange={handleChange}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <SearchIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
+            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, gap: 2 }}>
+              <TextField
+                fullWidth
+                name="search"
+                label="搜尋商家"
+                value={filters.search}
+                onChange={handleChange}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
               
-              <Grid item xs={12} md={4}>
-                <FormControl fullWidth>
-                  <InputLabel>類別</InputLabel>
-                  <Select
-                    name="category"
-                    value={filters.category}
-                    label="類別"
-                    onChange={handleChange}
-                  >
-                    {MERCHANT_CATEGORIES.map((category) => (
-                      <MenuItem key={category.value} value={category.value}>
-                        {category.label}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              </Grid>
+              <FormControl fullWidth>
+                <InputLabel>類別</InputLabel>
+                <Select
+                  name="category"
+                  value={filters.category}
+                  label="類別"
+                  onChange={handleSelectChange}
+                >
+                  {MERCHANT_CATEGORIES.map((category) => (
+                    <MenuItem key={category.value} value={category.value}>
+                      {category.label}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
               
-              <Grid item xs={12} md={4}>
-                <FormControl fullWidth>
-                  <InputLabel>狀態</InputLabel>
-                  <Select
-                    name="status"
-                    value={filters.status}
-                    label="狀態"
-                    onChange={handleChange}
-                  >
-                    {MERCHANT_STATUS_OPTIONS.map((status) => (
-                      <MenuItem key={status.value} value={status.value}>
-                        {status.label}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              </Grid>
-            </Grid>
+              <FormControl fullWidth>
+                <InputLabel>狀態</InputLabel>
+                <Select
+                  name="status"
+                  value={filters.status}
+                  label="狀態"
+                  onChange={handleSelectChange}
+                >
+                  {MERCHANT_STATUS_OPTIONS.map((status) => (
+                    <MenuItem key={status.value} value={status.value}>
+                      {status.label}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Box>
           </CardContent>
         </Card>
 
@@ -482,7 +461,7 @@ const MerchantsPage: React.FC = () => {
             mb: 4,
           }}
         >
-          {paginatedMerchants.map((merchant) => (
+          {paginatedMerchants.map((merchant: typeof MOCK_MERCHANTS[0]) => (
             <MerchantCard key={merchant.id} merchant={merchant} />
           ))}
         </Box>
