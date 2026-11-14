@@ -15,8 +15,13 @@ const taskState = {
   totalCount: 0,
 };
 
+const fetchingState = {
+  pendingActionTypes: [],
+};
+
 const initialState = {
   auth: authState,
+  fetching: fetchingState,
   task: taskState,
   customization: customizationState,
 };

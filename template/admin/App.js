@@ -9,6 +9,7 @@ import Routes from "./routes";
 import themes from "./themes";
 
 // project imports
+import GlobalLoader from "components/GlobalLoader";
 import NavigationScroll from "./layout/NavigationScroll";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 
   return (
       <ThemeProvider theme={themes(customization)}>
+        <GlobalLoader />
         <NavigationScroll>
           <Routes />
         </NavigationScroll>

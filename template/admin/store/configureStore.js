@@ -12,7 +12,7 @@ import {
 const persistConfig = {
   storage,
   key: '!&@#$%^drcleaneradmin',
-  blacklist: [],
+  blacklist: ['fetching'],
 };
 
 const configureStore = () => {
