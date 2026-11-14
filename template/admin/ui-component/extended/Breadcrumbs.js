@@ -126,18 +126,17 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
                         <Grid
                             container
                             direction={rightAlign ? 'row' : 'column'}
-                            justifyContent={rightAlign ? 'space-between' : 'flex-start'}
-                            alignItems={rightAlign ? 'center' : 'flex-start'}
                             spacing={1}
+                            sx={{ justifyContent: rightAlign ? 'space-between' : 'flex-start', alignItems: rightAlign ? 'center' : 'flex-start' }}
                         >
                             {title && !titleBottom && (
-                                <Grid item>
+                                <Grid>
                                     <Typography variant="h3" sx={{ fontWeight: 500 }}>
                                         {item.title}
                                     </Typography>
                                 </Grid>
                             )}
-                            <Grid item>
+                            <Grid>
                                 <MuiBreadcrumbs
                                     sx={{ '& .MuiBreadcrumbs-separator': { width: 16, ml: 1.25, mr: 1.25 } }}
                                     aria-label="breadcrumb"
@@ -154,7 +153,7 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
                                 </MuiBreadcrumbs>
                             </Grid>
                             {title && titleBottom && (
-                                <Grid item>
+                                <Grid>
                                     <Typography variant="h3" sx={{ fontWeight: 500 }}>
                                         {item.title}
                                     </Typography>

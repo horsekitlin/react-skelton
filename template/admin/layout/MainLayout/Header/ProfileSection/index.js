@@ -158,7 +158,7 @@ const ProfileSection = () => {
                                 <MainCard border={false} elevation={16} content={false} boxShadow shadow={theme.shadows[16]}>
                                     <Box sx={{ p: 2 }}>
                                         <Stack>
-                                            <Stack direction="row" spacing={0.5} alignItems="center">
+                                            <Stack direction="row" spacing={0.5} sx={{ alignItems: "center" }}>
                                                 <Typography variant="h4">Good Morning,</Typography>
                                                 <Typography component="span" variant="h4" sx={{ fontWeight: 400 }}>
                                                     Johne Doe
@@ -196,12 +196,12 @@ const ProfileSection = () => {
                                             >
                                                 <CardContent>
                                                     <Grid container spacing={3} direction="column">
-                                                        <Grid item>
-                                                            <Grid item container alignItems="center" justifyContent="space-between">
-                                                                <Grid item>
+                                                        <Grid>
+                                                            <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                                                                <Grid>
                                                                     <Typography variant="subtitle1">Start DND Mode</Typography>
                                                                 </Grid>
-                                                                <Grid item>
+                                                                <Grid>
                                                                     <Switch
                                                                         color="primary"
                                                                         checked={sdm}
@@ -212,12 +212,12 @@ const ProfileSection = () => {
                                                                 </Grid>
                                                             </Grid>
                                                         </Grid>
-                                                        <Grid item>
-                                                            <Grid item container alignItems="center" justifyContent="space-between">
-                                                                <Grid item>
+                                                        <Grid>
+                                                            <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                                                                <Grid>
                                                                     <Typography variant="subtitle1">Allow Notifications</Typography>
                                                                 </Grid>
-                                                                <Grid item>
+                                                                <Grid>
                                                                     <Switch
                                                                         checked={notification}
                                                                         onChange={(e) => setNotification(e.target.checked)}
@@ -267,11 +267,11 @@ const ProfileSection = () => {
                                                     </ListItemIcon>
                                                     <ListItemText
                                                         primary={
-                                                            <Grid container spacing={1} justifyContent="space-between">
-                                                                <Grid item>
+                                                            <Grid container spacing={1} sx={{ justifyContent: "space-between" }}>
+                                                                <Grid>
                                                                     <Typography variant="body2">Social Profile</Typography>
                                                                 </Grid>
-                                                                <Grid item>
+                                                                <Grid>
                                                                     <Chip
                                                                         label="02"
                                                                         size="small"

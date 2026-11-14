@@ -128,7 +128,7 @@ const Customization = () => {
             >
                 <PerfectScrollbar component="div">
                     <Grid container spacing={gridSpacing} sx={{ p: 3 }}>
-                        <Grid item xs={12}>
+                        <Grid size={12}>
                             {/* font family */}
                             <SubCard title="Font Family">
                                 <FormControl>
@@ -169,16 +169,16 @@ const Customization = () => {
                                 </FormControl>
                             </SubCard>
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid size={12}>
                             {/* border radius */}
                             <SubCard title="Border Radius">
-                                <Grid item xs={12} container spacing={2} alignItems="center" sx={{ mt: 2.5 }}>
-                                    <Grid item>
+                                <Grid size={12} container spacing={2} sx={{ alignItems: "center", mt: 2.5 }}>
+                                    <Grid>
                                         <Typography variant="h6" color="secondary">
                                             4px
                                         </Typography>
                                     </Grid>
-                                    <Grid item xs>
+                                    <Grid size={'grow'}>
                                         <Slider
                                             size="small"
                                             value={borderRadius}
@@ -198,7 +198,7 @@ const Customization = () => {
                                             }}
                                         />
                                     </Grid>
-                                    <Grid item>
+                                    <Grid>
                                         <Typography variant="h6" color="secondary">
                                             24px
                                         </Typography>

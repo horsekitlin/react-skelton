@@ -119,23 +119,19 @@ const TotalGrowthBarChart = ({ isLoading }) => {
       ) : (
         <MainCard>
           <Grid container spacing={gridSpacing}>
-            <Grid item xs={12}>
-              <Grid
-                container
-                alignItems="center"
-                justifyContent="space-between"
-              >
-                <Grid item>
+            <Grid size={12}>
+              <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                <Grid>
                   <Grid container direction="column" spacing={1}>
-                    <Grid item>
+                    <Grid>
                       <Typography variant="subtitle2">Total Growth</Typography>
                     </Grid>
-                    <Grid item>
+                    <Grid>
                       <Typography variant="h3">$2,324.00</Typography>
                     </Grid>
                   </Grid>
                 </Grid>
-                <Grid item>
+                <Grid>
                   <TextField
                     id="standard-select-currency"
                     select
@@ -151,7 +147,7 @@ const TotalGrowthBarChart = ({ isLoading }) => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Chart {...chartData} />
             </Grid>
           </Grid>

@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, Divider, Typography } from '@mui/materia
 
 // ==============================|| CUSTOM SUB CARD ||============================== //
 
-const SubCard = forwardRef(({ children, content, contentClass, darkTitle, secondary, sx = {}, contentSX = {}, title, ...others }, ref) => {
+const SubCard = forwardRef(({ children, content = true, contentClass, darkTitle, secondary, sx = {}, contentSX = {}, title, ...others }, ref) => {
     const theme = useTheme();
 
     return (
@@ -57,10 +57,6 @@ SubCard.propTypes = {
     sx: PropTypes.object,
     contentSX: PropTypes.object,
     title: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.object])
-};
-
-SubCard.defaultProps = {
-    content: true
 };
 
 export default SubCard;

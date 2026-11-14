@@ -24,41 +24,32 @@ const RegisterScreen = () => {
       <Grid
         container
         direction="column"
-        justifyContent="flex-end"
-        sx={{ minHeight: "100vh" }}
+        sx={{ justifyContent: "flex-end", minHeight: "100vh" }}
       >
-        <Grid item xs={12}>
-          <Grid
-            container
-            justifyContent="center"
-            alignItems="center"
-            sx={{ minHeight: "calc(100vh - 68px)" }}
-          >
-            <Grid item sx={{ m: { xs: 1, sm: 3 }, mb: 0 }}>
+        <Grid size={12}>
+          <Grid container sx={{ justifyContent: "center", alignItems: "center", minHeight: "calc(100vh - 68px)" }}>
+            <Grid sx={{ m: { xs: 1, sm: 3 }, mb: 0 }}>
               <AuthCardWrapper>
                 <Grid
                   container
                   spacing={2}
-                  alignItems="center"
-                  justifyContent="center"
+                  sx={{ alignItems: "center", justifyContent: "center" }}
                 >
-                  <Grid item sx={{ mb: 3 }}>
+                  <Grid sx={{ mb: 3 }}>
                     <Link to="#">
                       <Logo />
                     </Link>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid size={12}>
                     <Grid
                       container
                       direction={matchDownSM ? "column-reverse" : "row"}
-                      alignItems="center"
-                      justifyContent="center"
+                      sx={{ alignItems: "center", justifyContent: "center" }}
                     >
-                      <Grid item>
+                      <Grid>
                         <Stack
-                          alignItems="center"
-                          justifyContent="center"
                           spacing={1}
+                          sx={{ alignItems: "center", justifyContent: "center" }}
                         >
                           <Typography
                             color={theme.palette.secondary.main}
@@ -70,7 +61,7 @@ const RegisterScreen = () => {
                           <Typography
                             variant="caption"
                             fontSize="16px"
-                            textAlign={matchDownSM ? "center" : "inherit"}
+                            sx={{ textAlign: matchDownSM ? "center" : "inherit" }}
                           >
                             Enter your credentials to continue
                           </Typography>
@@ -78,19 +69,18 @@ const RegisterScreen = () => {
                       </Grid>
                     </Grid>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid size={12}>
                     <AuthRegister />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid size={12}>
                     <Divider />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid size={12}>
                     <Grid
-                      item
                       container
                       direction="column"
-                      alignItems="center"
-                      xs={12}
+                      size={12}
+                      sx={{ alignItems: "center" }}
                     >
                       <Typography
                         component={Link}
@@ -107,7 +97,7 @@ const RegisterScreen = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} sx={{ m: 3, mt: 1 }}>
+        <Grid size={12} sx={{ m: 3, mt: 1 }}>
           <AuthFooter />
         </Grid>
       </Grid>

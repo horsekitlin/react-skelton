@@ -40,12 +40,12 @@ const PopularCard = ({ isLoading }) => {
                 <MainCard content={false}>
                     <CardContent>
                         <Grid container spacing={gridSpacing}>
-                            <Grid item xs={12}>
-                                <Grid container alignContent="center" justifyContent="space-between">
-                                    <Grid item>
+                            <Grid size={12}>
+                                <Grid container sx={{ alignContent: "center", justifyContent: "space-between" }}>
+                                    <Grid>
                                         <Typography variant="h4">Popular Stocks</Typography>
                                     </Grid>
-                                    <Grid item>
+                                    <Grid>
                                         <MoreHorizOutlinedIcon
                                             fontSize="small"
                                             sx={{
@@ -79,26 +79,26 @@ const PopularCard = ({ isLoading }) => {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item xs={12} sx={{ pt: '16px !important' }}>
+                            <Grid size={12} sx={{ pt: '16px !important' }}>
                                 <BajajAreaChartCard />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid size={12}>
                                 <Grid container direction="column">
-                                    <Grid item>
-                                        <Grid container alignItems="center" justifyContent="space-between">
-                                            <Grid item>
+                                    <Grid>
+                                        <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                                            <Grid>
                                                 <Typography variant="subtitle1" color="inherit">
                                                     Bajaj Finery
                                                 </Typography>
                                             </Grid>
-                                            <Grid item>
-                                                <Grid container alignItems="center" justifyContent="space-between">
-                                                    <Grid item>
+                                            <Grid>
+                                                <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                                                    <Grid>
                                                         <Typography variant="subtitle1" color="inherit">
                                                             $1839.00
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>
+                                                    <Grid>
                                                         <Avatar
                                                             variant="rounded"
                                                             sx={{
@@ -117,7 +117,7 @@ const PopularCard = ({ isLoading }) => {
                                             </Grid>
                                         </Grid>
                                     </Grid>
-                                    <Grid item>
+                                    <Grid>
                                         <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
                                             10% Profit
                                         </Typography>
@@ -125,21 +125,21 @@ const PopularCard = ({ isLoading }) => {
                                 </Grid>
                                 <Divider sx={{ my: 1.5 }} />
                                 <Grid container direction="column">
-                                    <Grid item>
-                                        <Grid container alignItems="center" justifyContent="space-between">
-                                            <Grid item>
+                                    <Grid>
+                                        <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                                            <Grid>
                                                 <Typography variant="subtitle1" color="inherit">
                                                     TTML
                                                 </Typography>
                                             </Grid>
-                                            <Grid item>
-                                                <Grid container alignItems="center" justifyContent="space-between">
-                                                    <Grid item>
+                                            <Grid>
+                                                <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                                                    <Grid>
                                                         <Typography variant="subtitle1" color="inherit">
                                                             $100.00
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>
+                                                    <Grid>
                                                         <Avatar
                                                             variant="rounded"
                                                             sx={{
@@ -158,7 +158,7 @@ const PopularCard = ({ isLoading }) => {
                                             </Grid>
                                         </Grid>
                                     </Grid>
-                                    <Grid item>
+                                    <Grid>
                                         <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
                                             10% loss
                                         </Typography>
@@ -166,21 +166,21 @@ const PopularCard = ({ isLoading }) => {
                                 </Grid>
                                 <Divider sx={{ my: 1.5 }} />
                                 <Grid container direction="column">
-                                    <Grid item>
-                                        <Grid container alignItems="center" justifyContent="space-between">
-                                            <Grid item>
+                                    <Grid>
+                                        <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                                            <Grid>
                                                 <Typography variant="subtitle1" color="inherit">
                                                     Reliance
                                                 </Typography>
                                             </Grid>
-                                            <Grid item>
-                                                <Grid container alignItems="center" justifyContent="space-between">
-                                                    <Grid item>
+                                            <Grid>
+                                                <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                                                    <Grid>
                                                         <Typography variant="subtitle1" color="inherit">
                                                             $200.00
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>
+                                                    <Grid>
                                                         <Avatar
                                                             variant="rounded"
                                                             sx={{
@@ -199,7 +199,7 @@ const PopularCard = ({ isLoading }) => {
                                             </Grid>
                                         </Grid>
                                     </Grid>
-                                    <Grid item>
+                                    <Grid>
                                         <Typography variant="subtitle2" sx={{ color: theme.palette.success.dark }}>
                                             10% Profit
                                         </Typography>
@@ -207,21 +207,21 @@ const PopularCard = ({ isLoading }) => {
                                 </Grid>
                                 <Divider sx={{ my: 1.5 }} />
                                 <Grid container direction="column">
-                                    <Grid item>
-                                        <Grid container alignItems="center" justifyContent="space-between">
-                                            <Grid item>
+                                    <Grid>
+                                        <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                                            <Grid>
                                                 <Typography variant="subtitle1" color="inherit">
                                                     TTML
                                                 </Typography>
                                             </Grid>
-                                            <Grid item>
-                                                <Grid container alignItems="center" justifyContent="space-between">
-                                                    <Grid item>
+                                            <Grid>
+                                                <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                                                    <Grid>
                                                         <Typography variant="subtitle1" color="inherit">
                                                             $189.00
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>
+                                                    <Grid>
                                                         <Avatar
                                                             variant="rounded"
                                                             sx={{
@@ -240,7 +240,7 @@ const PopularCard = ({ isLoading }) => {
                                             </Grid>
                                         </Grid>
                                     </Grid>
-                                    <Grid item>
+                                    <Grid>
                                         <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
                                             10% loss
                                         </Typography>
@@ -248,21 +248,21 @@ const PopularCard = ({ isLoading }) => {
                                 </Grid>
                                 <Divider sx={{ my: 1.5 }} />
                                 <Grid container direction="column">
-                                    <Grid item>
-                                        <Grid container alignItems="center" justifyContent="space-between">
-                                            <Grid item>
+                                    <Grid>
+                                        <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                                            <Grid>
                                                 <Typography variant="subtitle1" color="inherit">
                                                     Stolon
                                                 </Typography>
                                             </Grid>
-                                            <Grid item>
-                                                <Grid container alignItems="center" justifyContent="space-between">
-                                                    <Grid item>
+                                            <Grid>
+                                                <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                                                    <Grid>
                                                         <Typography variant="subtitle1" color="inherit">
                                                             $189.00
                                                         </Typography>
                                                     </Grid>
-                                                    <Grid item>
+                                                    <Grid>
                                                         <Avatar
                                                             variant="rounded"
                                                             sx={{
@@ -281,7 +281,7 @@ const PopularCard = ({ isLoading }) => {
                                             </Grid>
                                         </Grid>
                                     </Grid>
-                                    <Grid item>
+                                    <Grid>
                                         <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
                                             10% loss
                                         </Typography>

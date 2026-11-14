@@ -56,19 +56,19 @@ function LinearProgressWithLabel({ value, ...others }) {
 
     return (
         <Grid container direction="column" spacing={1} sx={{ mt: 1.5 }}>
-            <Grid item>
-                <Grid container justifyContent="space-between">
-                    <Grid item>
+            <Grid>
+                <Grid container sx={{ justifyContent: "space-between" }}>
+                    <Grid>
                         <Typography variant="h6" sx={{ color: theme.palette.primary[800] }}>
                             Progress
                         </Typography>
                     </Grid>
-                    <Grid item>
+                    <Grid>
                         <Typography variant="h6" color="inherit">{`${Math.round(value)}%`}</Typography>
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item>
+            <Grid>
                 <BorderLinearProgress variant="determinate" value={value} {...others} />
             </Grid>
         </Grid>

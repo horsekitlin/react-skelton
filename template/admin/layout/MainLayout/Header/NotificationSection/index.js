@@ -147,9 +147,9 @@ const NotificationSection = () => {
                             <ClickAwayListener onClickAway={handleClose}>
                                 <MainCard border={false} elevation={16} content={false} boxShadow shadow={theme.shadows[16]}>
                                     <Grid container direction="column" spacing={2}>
-                                        <Grid item xs={12}>
-                                            <Grid container alignItems="center" justifyContent="space-between" sx={{ pt: 2, px: 2 }}>
-                                                <Grid item>
+                                        <Grid size={12}>
+                                            <Grid container sx={{ alignItems: "center", justifyContent: "space-between", pt: 2, px: 2 }}>
+                                                <Grid>
                                                     <Stack direction="row" spacing={2}>
                                                         <Typography variant="subtitle1">All Notification</Typography>
                                                         <Chip
@@ -162,19 +162,19 @@ const NotificationSection = () => {
                                                         />
                                                     </Stack>
                                                 </Grid>
-                                                <Grid item>
+                                                <Grid>
                                                     <Typography component={Link} to="#" variant="subtitle2" color="primary">
                                                         Mark as all read
                                                     </Typography>
                                                 </Grid>
                                             </Grid>
                                         </Grid>
-                                        <Grid item xs={12}>
+                                        <Grid size={12}>
                                             <PerfectScrollbar
                                                 style={{ height: '100%', maxHeight: 'calc(100vh - 205px)', overflowX: 'hidden' }}
                                             >
                                                 <Grid container direction="column" spacing={2}>
-                                                    <Grid item xs={12}>
+                                                    <Grid size={12}>
                                                         <Box sx={{ px: 2, pt: 0.25 }}>
                                                             <TextField
                                                                 id="outlined-select-currency-native"
@@ -194,7 +194,7 @@ const NotificationSection = () => {
                                                             </TextField>
                                                         </Box>
                                                     </Grid>
-                                                    <Grid item xs={12} p={0}>
+                                                    <Grid size={12} sx={{ p: 0 }}>
                                                         <Divider sx={{ my: 0 }} />
                                                     </Grid>
                                                 </Grid>

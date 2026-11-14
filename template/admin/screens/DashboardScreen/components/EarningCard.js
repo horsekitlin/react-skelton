@@ -77,9 +77,9 @@ const EarningCard = ({ isLoading }) => {
                 <CardWrapper border={false} content={false}>
                     <Box sx={{ p: 2.25 }}>
                         <Grid container direction="column">
-                            <Grid item>
-                                <Grid container justifyContent="space-between">
-                                    <Grid item>
+                            <Grid>
+                                <Grid container sx={{ justifyContent: "space-between" }}>
+                                    <Grid>
                                         <Avatar
                                             variant="rounded"
                                             sx={{
@@ -92,7 +92,7 @@ const EarningCard = ({ isLoading }) => {
                                             <img src={EarningIcon} alt="Notification" />
                                         </Avatar>
                                     </Grid>
-                                    <Grid item>
+                                    <Grid>
                                         <Avatar
                                             variant="rounded"
                                             sx={{
@@ -140,14 +140,14 @@ const EarningCard = ({ isLoading }) => {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item>
-                                <Grid container alignItems="center">
-                                    <Grid item>
+                            <Grid>
+                                <Grid container sx={{ alignItems: "center" }}>
+                                    <Grid>
                                         <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>
                                             $500.00
                                         </Typography>
                                     </Grid>
-                                    <Grid item>
+                                    <Grid>
                                         <Avatar
                                             sx={{
                                                 cursor: 'pointer',
@@ -161,7 +161,7 @@ const EarningCard = ({ isLoading }) => {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item sx={{ mb: 1.25 }}>
+                            <Grid sx={{ mb: 1.25 }}>
                                 <Typography
                                     sx={{
                                         fontSize: '1rem',

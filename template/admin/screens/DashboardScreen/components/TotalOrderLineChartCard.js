@@ -79,9 +79,9 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                 <CardWrapper border={false} content={false}>
                     <Box sx={{ p: 2.25 }}>
                         <Grid container direction="column">
-                            <Grid item>
-                                <Grid container justifyContent="space-between">
-                                    <Grid item>
+                            <Grid>
+                                <Grid container sx={{ justifyContent: "space-between" }}>
+                                    <Grid>
                                         <Avatar
                                             variant="rounded"
                                             sx={{
@@ -95,7 +95,7 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                                             <LocalMallOutlinedIcon fontSize="inherit" />
                                         </Avatar>
                                     </Grid>
-                                    <Grid item>
+                                    <Grid>
                                         <Button
                                             disableElevation
                                             variant={timeValue ? 'contained' : 'text'}
@@ -117,11 +117,11 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item sx={{ mb: 0.75 }}>
-                                <Grid container alignItems="center">
-                                    <Grid item xs={6}>
-                                        <Grid container alignItems="center">
-                                            <Grid item>
+                            <Grid sx={{ mb: 0.75 }}>
+                                <Grid container sx={{ alignItems: "center" }}>
+                                    <Grid size={6}>
+                                        <Grid container sx={{ alignItems: "center" }}>
+                                            <Grid>
                                                 {timeValue ? (
                                                     <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>
                                                         $108
@@ -132,7 +132,7 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                                                     </Typography>
                                                 )}
                                             </Grid>
-                                            <Grid item>
+                                            <Grid>
                                                 <Avatar
                                                     sx={{
                                                         ...theme.typography.smallAvatar,
@@ -144,7 +144,7 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                                                     <ArrowDownwardIcon fontSize="inherit" sx={{ transform: 'rotate3d(1, 1, 1, 45deg)' }} />
                                                 </Avatar>
                                             </Grid>
-                                            <Grid item xs={12}>
+                                            <Grid size={12}>
                                                 <Typography
                                                     sx={{
                                                         fontSize: '1rem',
@@ -157,7 +157,7 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                                             </Grid>
                                         </Grid>
                                     </Grid>
-                                    <Grid item xs={6}>
+                                    <Grid size={6}>
                                         {timeValue ? <Chart {...ChartDataMonth} /> : <Chart {...ChartDataYear} />}
                                     </Grid>
                                 </Grid>

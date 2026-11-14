@@ -17,35 +17,35 @@ const UtilsTypographyScreen = () => (
     }
   >
     <Grid container spacing={gridSpacing}>
-      <Grid item xs={12} sm={6}>
+      <Grid size={{ xs: 12, sm: 6 }}>
         <SubCard title="Heading">
           <Grid container direction="column" spacing={1}>
-            <Grid item>
+            <Grid>
               <MuiTypography variant="h1" gutterBottom>
                 h1. Heading
               </MuiTypography>
             </Grid>
-            <Grid item>
+            <Grid>
               <MuiTypography variant="h2" gutterBottom>
                 h2. Heading
               </MuiTypography>
             </Grid>
-            <Grid item>
+            <Grid>
               <MuiTypography variant="h3" gutterBottom>
                 h3. Heading
               </MuiTypography>
             </Grid>
-            <Grid item>
+            <Grid>
               <MuiTypography variant="h4" gutterBottom>
                 h4. Heading
               </MuiTypography>
             </Grid>
-            <Grid item>
+            <Grid>
               <MuiTypography variant="h5" gutterBottom>
                 h5. Heading
               </MuiTypography>
             </Grid>
-            <Grid item>
+            <Grid>
               <MuiTypography variant="h6" gutterBottom>
                 h6. Heading
               </MuiTypography>
@@ -53,16 +53,16 @@ const UtilsTypographyScreen = () => (
           </Grid>
         </SubCard>
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid size={{ xs: 12, sm: 6 }}>
         <SubCard title="Sub title">
           <Grid container direction="column" spacing={1}>
-            <Grid item>
+            <Grid>
               <MuiTypography variant="subtitle1" gutterBottom>
                 subtitle1. Lorem ipsum dolor sit connecter adieu siccing eliot.
                 Quos blanditiis tenetur
               </MuiTypography>
             </Grid>
-            <Grid item>
+            <Grid>
               <MuiTypography variant="subtitle2" gutterBottom>
                 subtitle2. Lorem ipsum dolor sit connecter adieu siccing eliot.
                 Quos blanditiis tenetur
@@ -71,10 +71,10 @@ const UtilsTypographyScreen = () => (
           </Grid>
         </SubCard>
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid size={{ xs: 12, sm: 6 }}>
         <SubCard title="Body">
           <Grid container direction="column" spacing={1}>
-            <Grid item>
+            <Grid>
               <MuiTypography variant="body1" gutterBottom>
                 body1. Lorem ipsum dolor sit connecter adieu siccing eliot. Quos
                 blanditiis tenetur unde suscipit, quam beatae rerum inventore
@@ -82,7 +82,7 @@ const UtilsTypographyScreen = () => (
                 laborum fugiat deleniti? Eum quasi quidem quibusdam.
               </MuiTypography>
             </Grid>
-            <Grid item>
+            <Grid>
               <MuiTypography variant="body2" gutterBottom>
                 body2. Lorem ipsum dolor sit connecter adieu siccing eliot. Quos
                 blanditiis tenetur unde suscipit, quam beatae rerum inventore
@@ -93,25 +93,25 @@ const UtilsTypographyScreen = () => (
           </Grid>
         </SubCard>
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid size={{ xs: 12, sm: 6 }}>
         <SubCard title="Extra">
           <Grid container direction="column" spacing={1}>
-            <Grid item>
+            <Grid>
               <MuiTypography variant="button" display="block" gutterBottom>
                 button text
               </MuiTypography>
             </Grid>
-            <Grid item>
+            <Grid>
               <MuiTypography variant="caption" display="block" gutterBottom>
                 caption text
               </MuiTypography>
             </Grid>
-            <Grid item>
+            <Grid>
               <MuiTypography variant="overline" display="block" gutterBottom>
                 overline text
               </MuiTypography>
             </Grid>
-            <Grid item>
+            <Grid>
               <MuiTypography
                 variant="body2"
                 color="primary"
