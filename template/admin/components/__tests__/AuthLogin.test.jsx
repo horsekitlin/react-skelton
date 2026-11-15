@@ -5,7 +5,7 @@ const submit = () => fireEvent.click(screen.getByRole('button', { name: 'Sign in
 
 describe('AuthLogin', () => {
   it('should show password required error and not sign in when password is empty', async () => {
-    const handleSignIn = jest.fn();
+    const handleSignIn = vi.fn();
     render(<AuthLogin handleSignIn={handleSignIn} />);
 
     submit();
@@ -15,7 +15,7 @@ describe('AuthLogin', () => {
   });
 
   it('should call handleSignIn with phone and password when form is valid', async () => {
-    const handleSignIn = jest.fn();
+    const handleSignIn = vi.fn();
     const { container } = render(<AuthLogin handleSignIn={handleSignIn} />);
 
     fireEvent.change(container.querySelector('input[name="phone"]'), { target: { value: '0912345678' } });

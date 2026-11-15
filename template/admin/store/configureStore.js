@@ -1,7 +1,7 @@
-import {applyMiddleware, compose, createStore} from 'redux';
+import {applyMiddleware, compose, legacy_createStore as createStore} from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import {persistStore, persistReducer} from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/es/storage';
 import rootReducer from '../reducers';
 import rootSaga from '../sagas';
 import {
@@ -33,11 +33,12 @@ const configureStore = () => {
   );
 
   const persistor = persistStore(prevanteStore);
-  if (module.hot) {
-    // Enable Webpack hot module replacement for reducers
-    module.hot.accept('../reducers/index', () => {
-      const nextRootReducer = require('../reducers/index');
-      prevanteStore.replaceReducer(nextRootReducer);
+  if (import.meta.hot) {
+    // 開發時熱替換 reducers
+    import.meta.hot.accept('../reducers/index', (nextModule) => {
+      prevanteStore.replaceReducer(
+        persistReducer(persistConfig, nextModule.default),
+      );
     });
   }
   return {

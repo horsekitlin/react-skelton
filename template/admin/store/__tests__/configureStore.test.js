@@ -3,7 +3,7 @@ import store from 'store/configureStore';
 import { signInAction, signOutAction } from 'actions/authActions';
 import { loginResult } from 'apis/auth';
 
-jest.mock('apis/auth');
+vi.mock('apis/auth');
 
 const isFetching = () => store.getState().fetching.pendingActionTypes.length > 0;
 const credentials = { phone: '0912345678', password: 'secret' };
