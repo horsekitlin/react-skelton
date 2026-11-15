@@ -16,7 +16,7 @@ import {
     Tooltip,
     Typography
 } from '@mui/material';
-import { IconSettings } from '@tabler/icons';
+import { IconSettings } from '@tabler/icons-react';
 
 // third-party
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -120,9 +120,11 @@ const Customization = () => {
                 anchor="right"
                 onClose={handleToggle}
                 open={open}
-                PaperProps={{
-                    sx: {
-                        width: 280
+                slotProps={{
+                    paper: {
+                        sx: {
+                            width: 280
+                        }
                     }
                 }}
             >
@@ -135,7 +137,7 @@ const Customization = () => {
                                     <RadioGroup
                                         aria-label="font-family"
                                         // value={fontFamily}
-                                        onChange={(e) => false}
+                                        onChange={() => false}
                                         name="row-radio-buttons-group"
                                     >
                                         <FormControlLabel

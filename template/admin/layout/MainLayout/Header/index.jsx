@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -11,7 +10,7 @@ import ProfileSection from './ProfileSection';
 import NotificationSection from './NotificationSection';
 
 // assets
-import { IconMenu2 } from '@tabler/icons';
+import { IconMenu2 } from '@tabler/icons-react';
 
 // ==============================|| MAIN NAVBAR / HEADER ||============================== //
 
@@ -65,10 +64,6 @@ const Header = ({ handleLeftDrawerToggle }) => {
             <ProfileSection />
         </>
     );
-};
-
-Header.propTypes = {
-    handleLeftDrawerToggle: PropTypes.func
 };
 
 export default Header;

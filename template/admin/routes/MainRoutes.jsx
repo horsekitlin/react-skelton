@@ -28,18 +28,18 @@ const MainRoutes = {
     children: [
         {
             path: '/',
-            element: <ProtectedRoute children={<DashboardDefault />} />
+            element: <ProtectedRoute><DashboardDefault /></ProtectedRoute>
         },
         {
             path: '/tasks',
-            element: <ProtectedRoute children={<TaskScreen />} />
+            element: <ProtectedRoute><TaskScreen /></ProtectedRoute>
         },
         {
             path: 'dashboard',
             children: [
                 {
                     path: 'default',
-                    element: <ProtectedRoute children={<DashboardDefault />} />
+                    element: <ProtectedRoute><DashboardDefault /></ProtectedRoute>
                 }
             ]
         },
@@ -48,7 +48,7 @@ const MainRoutes = {
             children: [
                 {
                     path: 'util-typography',
-                    element: <ProtectedRoute children={<UtilsTypography />} />
+                    element: <ProtectedRoute><UtilsTypography /></ProtectedRoute>
                 }
             ]
         },
@@ -57,11 +57,11 @@ const MainRoutes = {
             children: [
                 {
                     path: 'util-color',
-                    element: <ProtectedRoute children={<UtilsColor />} />
+                    element: <ProtectedRoute><UtilsColor /></ProtectedRoute>
                 },
                 {
                     path: 'util-shadow',
-                    element: <ProtectedRoute children={<UtilsShadow />} />
+                    element: <ProtectedRoute><UtilsShadow /></ProtectedRoute>
                 }
             ]
         },
@@ -70,17 +70,17 @@ const MainRoutes = {
             children: [
                 {
                     path: 'tabler-icons',
-                    element: <ProtectedRoute children={<UtilsTablerIcons />} />
+                    element: <ProtectedRoute><UtilsTablerIcons /></ProtectedRoute>
                 },
                 {
                     path: 'material-icons',
-                    element: <ProtectedRoute children={<UtilsMaterialIcons />} />
+                    element: <ProtectedRoute><UtilsMaterialIcons /></ProtectedRoute>
                 }
             ]
         },
         {
             path: 'sample-page',
-            element: <ProtectedRoute children={<SamplePage />} />
+            element: <ProtectedRoute><SamplePage /></ProtectedRoute>
         }
     ]
 };

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
 // ==============================|| NAVIGATION SCROLL TO TOP ||============================== //
@@ -15,10 +14,6 @@ const NavigationScroll = ({ children }) => {
     }, [pathname]);
 
     return children || null;
-};
-
-NavigationScroll.propTypes = {
-    children: PropTypes.node
 };
 
 export default NavigationScroll;

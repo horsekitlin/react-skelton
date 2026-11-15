@@ -4,6 +4,10 @@ import customizationReducer from '../customizationReducer';
 import initialState from '../initialState';
 
 describe('customization menu toggle', () => {
+  it('should keep the sidebar collapsed by default', () => {
+    expect(initialState.customization.opened).toBe(false);
+  });
+
   it('should toggle opened when reducer receives the set menu action', () => {
     const state = customizationReducer(initialState.customization, customizationSetMenuAction());
 

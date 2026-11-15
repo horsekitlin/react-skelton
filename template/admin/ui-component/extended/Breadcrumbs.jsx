@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -12,7 +11,7 @@ import config from 'config';
 import { gridSpacing } from 'constants';
 
 // assets
-import { IconTallymark1 } from '@tabler/icons';
+import { IconTallymark1 } from '@tabler/icons-react';
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
 import HomeIcon from '@mui/icons-material/Home';
 import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
@@ -168,19 +167,6 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
     }
 
     return breadcrumbContent;
-};
-
-Breadcrumbs.propTypes = {
-    card: PropTypes.bool,
-    divider: PropTypes.bool,
-    icon: PropTypes.bool,
-    icons: PropTypes.bool,
-    maxItems: PropTypes.number,
-    navigation: PropTypes.object,
-    rightAlign: PropTypes.bool,
-    separator: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-    title: PropTypes.bool,
-    titleBottom: PropTypes.bool
 };
 
 export default Breadcrumbs;

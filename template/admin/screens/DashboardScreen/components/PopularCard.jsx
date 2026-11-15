@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 // material-ui
@@ -300,10 +299,6 @@ const PopularCard = ({ isLoading }) => {
             )}
         </>
     );
-};
-
-PopularCard.propTypes = {
-    isLoading: PropTypes.bool
 };
 
 export default PopularCard;

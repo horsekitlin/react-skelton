@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 // material-ui
 import { Grid } from "@mui/material";
 
@@ -15,10 +13,7 @@ import { gridSpacing } from "constants";
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
 const DashboardScreen = () => {
-  const [isLoading, setLoading] = useState(true);
-  useEffect(() => {
-    setLoading(false);
-  }, []);
+  const isLoading = false;
 
   return (
     <Grid container spacing={gridSpacing}>

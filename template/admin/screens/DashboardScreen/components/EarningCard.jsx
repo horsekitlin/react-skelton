@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 // material-ui
@@ -178,10 +177,6 @@ const EarningCard = ({ isLoading }) => {
             )}
         </>
     );
-};
-
-EarningCard.propTypes = {
-    isLoading: PropTypes.bool
 };
 
 export default EarningCard;

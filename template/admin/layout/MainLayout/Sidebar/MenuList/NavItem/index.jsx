@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import { forwardRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { useSelector } from 'react-redux';
 
 // material-ui
@@ -42,7 +41,7 @@ const NavItem = ({ item, level }) => {
         listItemProps = { component: 'a', href: item.url, target: itemTarget };
     }
 
-    const itemHandler = (id) => {
+    const itemHandler = () => {
         // dispatch({ type: MENU_OPEN, id });
         if (matchesSM) {
             // dispatch({ type: SET_MENU, opened: false });
@@ -74,7 +73,7 @@ const NavItem = ({ item, level }) => {
                 pl: `${level * 24}px`
             }}
             selected={customization.isOpen.findIndex((id) => id === item.id) > -1}
-            onClick={() => itemHandler(item.id)}
+            onClick={itemHandler}
         >
             <ListItemIcon sx={{ my: 'auto', minWidth: !item?.icon ? 18 : 36 }}>{itemIcon}</ListItemIcon>
             <ListItemText
@@ -102,11 +101,6 @@ const NavItem = ({ item, level }) => {
             )}
         </ListItemButton>
     );
-};
-
-NavItem.propTypes = {
-    item: PropTypes.object,
-    level: PropTypes.number
 };
 
 export default NavItem;

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -11,7 +10,7 @@ import NavItem from '../NavItem';
 
 // assets
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import { IconChevronDown, IconChevronUp } from '@tabler/icons';
+import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 
 // ==============================|| SIDEBAR MENU LIST COLLAPSE ITEMS ||============================== //
 
@@ -114,11 +113,6 @@ const NavCollapse = ({ menu, level }) => {
             </Collapse>
         </>
     );
-};
-
-NavCollapse.propTypes = {
-    menu: PropTypes.object,
-    level: PropTypes.number
 };
 
 export default NavCollapse;

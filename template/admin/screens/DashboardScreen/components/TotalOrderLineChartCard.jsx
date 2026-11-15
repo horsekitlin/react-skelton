@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 // material-ui
@@ -6,7 +5,7 @@ import { useTheme, styled } from '@mui/material/styles';
 import { Avatar, Box, Button, Grid, Typography } from '@mui/material';
 
 // third-party
-import Chart from 'react-apexcharts';
+import Chart from 'ui-component/ApexChart';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
@@ -168,10 +167,6 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
             )}
         </>
     );
-};
-
-TotalOrderLineChartCard.propTypes = {
-    isLoading: PropTypes.bool
 };
 
 export default TotalOrderLineChartCard;

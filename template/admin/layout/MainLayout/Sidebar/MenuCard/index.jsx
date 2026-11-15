@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 
 // material-ui
 import { styled, useTheme } from '@mui/material/styles';
@@ -74,10 +73,6 @@ function LinearProgressWithLabel({ value, ...others }) {
         </Grid>
     );
 }
-
-LinearProgressWithLabel.propTypes = {
-    value: PropTypes.number
-};
 
 // ==============================|| SIDEBAR MENU Card ||============================== //
 

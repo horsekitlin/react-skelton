@@ -3,7 +3,7 @@ import initialState from "./initialState";
 
 export default function routeReducer(
   customization = initialState.customization,
-  { type, payload }
+  { type }
 ) {
   switch (type) {
     case types.CUSTOMIZATION_SET_MENU:

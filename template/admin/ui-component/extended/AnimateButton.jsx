@@ -1,11 +1,10 @@
-import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 // third-party
-import { motion, useCycle } from 'framer-motion';
+import { LazyMotion, domAnimation, m, useCycle } from 'framer-motion';
 
 // ==============================|| ANIMATION BUTTON ||============================== //
 
-const AnimateButton = forwardRef(({ children, type = 'scale', direction = 'right', offset = 10, scale = { hover: 1, tap: 0.9 } }, ref) => {
+const AnimateButtonContent = forwardRef(({ children, type = 'scale', direction = 'right', offset = 10, scale = { hover: 1, tap: 0.9 } }, ref) => {
     let offset1;
     let offset2;
     switch (direction) {
@@ -28,7 +27,7 @@ const AnimateButton = forwardRef(({ children, type = 'scale', direction = 'right
     switch (type) {
         case 'rotate':
             return (
-                <motion.div
+                <m.div
                     ref={ref}
                     animate={{ rotate: 360 }}
                     transition={{
@@ -39,25 +38,25 @@ const AnimateButton = forwardRef(({ children, type = 'scale', direction = 'right
                     }}
                 >
                     {children}
-                </motion.div>
+                </m.div>
             );
         case 'slide':
             if (direction === 'up' || direction === 'down') {
                 return (
-                    <motion.div
+                    <m.div
                         ref={ref}
                         animate={{ y: y !== undefined ? y : '' }}
                         onHoverEnd={() => cycleY()}
                         onHoverStart={() => cycleY()}
                     >
                         {children}
-                    </motion.div>
+                    </m.div>
                 );
             }
             return (
-                <motion.div ref={ref} animate={{ x: x !== undefined ? x : '' }} onHoverEnd={() => cycleX()} onHoverStart={() => cycleX()}>
+                <m.div ref={ref} animate={{ x: x !== undefined ? x : '' }} onHoverEnd={() => cycleX()} onHoverStart={() => cycleX()}>
                     {children}
-                </motion.div>
+                </m.div>
             );
 
         case 'scale':
@@ -69,19 +68,17 @@ const AnimateButton = forwardRef(({ children, type = 'scale', direction = 'right
                 };
             }
             return (
-                <motion.div ref={ref} whileHover={{ scale: scale?.hover }} whileTap={{ scale: scale?.tap }}>
+                <m.div ref={ref} whileHover={{ scale: scale?.hover }} whileTap={{ scale: scale?.tap }}>
                     {children}
-                </motion.div>
+                </m.div>
             );
     }
 });
 
-AnimateButton.propTypes = {
-    children: PropTypes.node,
-    offset: PropTypes.number,
-    type: PropTypes.oneOf(['slide', 'scale', 'rotate']),
-    direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),
-    scale: PropTypes.oneOfType([PropTypes.number, PropTypes.object])
-};
+const AnimateButton = forwardRef((props, ref) => (
+    <LazyMotion features={domAnimation}>
+        <AnimateButtonContent {...props} ref={ref} />
+    </LazyMotion>
+));
 
 export default AnimateButton;

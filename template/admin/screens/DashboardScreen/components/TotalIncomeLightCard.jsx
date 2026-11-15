@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 
 // material-ui
 import { useTheme, styled } from '@mui/material/styles';
@@ -90,10 +89,6 @@ const TotalIncomeLightCard = ({ isLoading }) => {
             )}
         </>
     );
-};
-
-TotalIncomeLightCard.propTypes = {
-    isLoading: PropTypes.bool
 };
 
 export default TotalIncomeLightCard;

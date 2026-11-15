@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { Link } from 'react-router';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -30,7 +30,7 @@ import Transitions from 'ui-component/extended/Transitions';
 import NotificationList from './NotificationList';
 
 // assets
-import { IconBell } from '@tabler/icons';
+import { IconBell } from '@tabler/icons-react';
 
 // notification status options
 const status = [
@@ -64,6 +64,11 @@ const NotificationSection = () => {
      * anchorRef is used on different componets and specifying one type leads to other components throwing an error
      * */
     const anchorRef = useRef(null);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const setAnchor = useCallback((node) => {
+        anchorRef.current = node;
+        setAnchorEl(node);
+    }, []);
 
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
@@ -113,7 +118,7 @@ const NotificationSection = () => {
                                 color: theme.palette.secondary.light
                             }
                         }}
-                        ref={anchorRef}
+                        ref={setAnchor}
                         aria-controls={open ? 'menu-list-grow' : undefined}
                         aria-haspopup="true"
                         onClick={handleToggle}
@@ -126,7 +131,7 @@ const NotificationSection = () => {
             <Popper
                 placement={matchesXs ? 'bottom' : 'bottom-end'}
                 open={open}
-                anchorEl={anchorRef.current}
+                anchorEl={anchorEl}
                 role={undefined}
                 transition
                 disablePortal

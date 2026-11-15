@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -59,14 +58,6 @@ const Avatar = ({ color, outline, size, sx, ...others }) => {
     }
 
     return <MuiAvatar sx={{ ...colorSX, ...outlineSX, ...sizeSX, ...sx }} {...others} />;
-};
-
-Avatar.propTypes = {
-    className: PropTypes.string,
-    color: PropTypes.string,
-    outline: PropTypes.bool,
-    size: PropTypes.string,
-    sx: PropTypes.object
 };
 
 export default Avatar;

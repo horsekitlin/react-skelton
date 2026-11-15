@@ -1,4 +1,4 @@
-import { useRoutes } from 'react-router-dom';
+import { useRoutes } from 'react-router';
 
 // routes
 import MainRoutes from './MainRoutes';

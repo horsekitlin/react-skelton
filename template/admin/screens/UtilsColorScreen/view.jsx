@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 
 // material-ui
 import { Box, Card, Grid, Typography } from "@mui/material";
@@ -46,13 +45,6 @@ const ColorBox = ({ bgcolor, title, data, dark }) => (
     )}
   </>
 );
-
-ColorBox.propTypes = {
-  bgcolor: PropTypes.string,
-  title: PropTypes.string,
-  data: PropTypes.object.isRequired,
-  dark: PropTypes.bool,
-};
 
 // ===============================|| UI COLOR ||=============================== //
 

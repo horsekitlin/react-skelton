@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router';
 import { useSelector } from 'react-redux';
 
 // material-ui
@@ -46,8 +46,8 @@ const FirebaseRegister = ({ ...others }) => {
     const [showPassword, setShowPassword] = useState(false);
     const [checked, setChecked] = useState(true);
 
-    const [strength, setStrength] = useState(0);
-    const [level, setLevel] = useState();
+    const [strength, setStrength] = useState(() => strengthIndicator('123456'));
+    const [level, setLevel] = useState(() => strengthColor(strengthIndicator('123456')));
 
     const googleHandler = async () => {
         console.error('Register');
@@ -66,10 +66,6 @@ const FirebaseRegister = ({ ...others }) => {
         setStrength(temp);
         setLevel(strengthColor(temp));
     };
-
-    useEffect(() => {
-        changePassword('123456');
-    }, []);
 
     return (
         <>

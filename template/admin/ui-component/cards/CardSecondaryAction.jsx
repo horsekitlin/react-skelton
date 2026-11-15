@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import { ButtonBase, Link, Tooltip } from '@mui/material';
 
@@ -47,12 +46,6 @@ const CardSecondaryAction = ({ title, link, icon }) => {
             </ButtonBase>
         </Tooltip>
     );
-};
-
-CardSecondaryAction.propTypes = {
-    icon: PropTypes.node,
-    link: PropTypes.string,
-    title: PropTypes.string
 };
 
 export default CardSecondaryAction;

@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 
 // material-ui
 import { Box, Card, Grid } from "@mui/material";
@@ -27,10 +26,6 @@ const ShadowBox = ({ shadow }) => (
     </Box>
   </Card>
 );
-
-ShadowBox.propTypes = {
-  shadow: PropTypes.string.isRequired,
-};
 
 // ============================|| UTILITIES SHADOW ||============================ //
 

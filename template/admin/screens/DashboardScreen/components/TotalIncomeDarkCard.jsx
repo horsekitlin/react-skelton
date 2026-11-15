@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 
 // material-ui
 import { styled, useTheme } from '@mui/material/styles';
@@ -90,10 +89,6 @@ const TotalIncomeDarkCard = ({ isLoading }) => {
             )}
         </>
     );
-};
-
-TotalIncomeDarkCard.propTypes = {
-    isLoading: PropTypes.bool
 };
 
 export default TotalIncomeDarkCard;

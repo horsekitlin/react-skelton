@@ -1,14 +1,11 @@
-import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useState, useMemo } from "react";
 
 // material-ui
 import { useTheme } from "@mui/material/styles";
 import { Grid, MenuItem, TextField, Typography } from "@mui/material";
 
 // third-party
-import ApexCharts from "apexcharts";
-import Chart from "react-apexcharts";
+import Chart from 'ui-component/ApexChart';
 
 // project imports
 import SkeletonTotalGrowthBarChart from "ui-component/cards/Skeleton/TotalGrowthBarChart";
@@ -38,11 +35,8 @@ const status = [
 const TotalGrowthBarChart = ({ isLoading }) => {
   const [value, setValue] = useState("today");
   const theme = useTheme();
-  const customization = useSelector((state) => state.customization);
 
-  const { navType } = customization;
   const { primary } = theme.palette.text;
-  const darkLight = theme.palette.dark.light;
   const grey200 = theme.palette.grey[200];
   const grey500 = theme.palette.grey[500];
 
@@ -51,27 +45,15 @@ const TotalGrowthBarChart = ({ isLoading }) => {
   const secondaryMain = theme.palette.secondary.main;
   const secondaryLight = theme.palette.secondary.light;
 
-  useEffect(() => {
-    const newChartData = {
+  const options = useMemo(
+    () => ({
       ...chartData.options,
       colors: [primary200, primaryDark, secondaryMain, secondaryLight],
       xaxis: {
+        ...chartData.options.xaxis,
         labels: {
           style: {
-            colors: [
-              primary,
-              primary,
-              primary,
-              primary,
-              primary,
-              primary,
-              primary,
-              primary,
-              primary,
-              primary,
-              primary,
-              primary,
-            ],
+            colors: Array(chartData.options.xaxis.categories.length).fill(primary),
           },
         },
       },
@@ -83,34 +65,22 @@ const TotalGrowthBarChart = ({ isLoading }) => {
         },
       },
       grid: {
+        ...chartData.options.grid,
         borderColor: grey200,
       },
       tooltip: {
         theme: "light",
       },
       legend: {
+        ...chartData.options.legend,
         labels: {
+          ...chartData.options.legend.labels,
           colors: grey500,
         },
       },
-    };
-
-    // do not load chart when loading
-    if (!isLoading) {
-      ApexCharts.exec(`bar-chart`, "updateOptions", newChartData);
-    }
-  }, [
-    navType,
-    primary200,
-    primaryDark,
-    secondaryMain,
-    secondaryLight,
-    primary,
-    darkLight,
-    grey200,
-    isLoading,
-    grey500,
-  ]);
+    }),
+    [primary200, primaryDark, secondaryMain, secondaryLight, primary, grey200, grey500]
+  );
 
   return (
     <>
@@ -148,17 +118,13 @@ const TotalGrowthBarChart = ({ isLoading }) => {
               </Grid>
             </Grid>
             <Grid size={12}>
-              <Chart {...chartData} />
+              <Chart {...chartData} options={options} />
             </Grid>
           </Grid>
         </MainCard>
       )}
     </>
   );
-};
-
-TotalGrowthBarChart.propTypes = {
-  isLoading: PropTypes.bool,
 };
 
 export default TotalGrowthBarChart;

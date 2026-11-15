@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 // material-ui
@@ -12,7 +11,7 @@ import PopupState, { bindPopper, bindToggle } from 'material-ui-popup-state';
 import Transitions from 'ui-component/extended/Transitions';
 
 // assets
-import { IconAdjustmentsHorizontal, IconSearch, IconX } from '@tabler/icons';
+import { IconAdjustmentsHorizontal, IconSearch, IconX } from '@tabler/icons-react';
 import { shouldForwardProp } from '@mui/system';
 
 // styles
@@ -105,12 +104,6 @@ const MobileSearch = ({ value, setValue, popupState }) => {
             inputProps={{ 'aria-label': 'weight' }}
         />
     );
-};
-
-MobileSearch.propTypes = {
-    value: PropTypes.string,
-    setValue: PropTypes.func,
-    popupState: PopupState
 };
 
 // ==============================|| SEARCH INPUT ||============================== //

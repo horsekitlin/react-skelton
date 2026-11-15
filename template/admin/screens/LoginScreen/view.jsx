@@ -1,4 +1,4 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router";
 
 // material-ui
 import { useTheme } from "@mui/material/styles";

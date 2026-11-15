@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 
 // material-ui
@@ -38,7 +38,7 @@ import UpgradePlanCard from './UpgradePlanCard';
 import User1 from 'assets/images/users/user-round.svg';
 
 // assets
-import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons';
+import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons-react';
 
 // ==============================|| PROFILE MENU ||============================== //
 
@@ -57,6 +57,11 @@ const ProfileSection = () => {
      * anchorRef is used on different componets and specifying one type leads to other components throwing an error
      * */
     const anchorRef = useRef(null);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const setAnchor = useCallback((node) => {
+        anchorRef.current = node;
+        setAnchorEl(node);
+    }, []);
     const handleLogout = () => {
         dispatch(signOutAction());
     };
@@ -119,7 +124,6 @@ const ProfileSection = () => {
                             margin: '8px 0 8px 8px !important',
                             cursor: 'pointer'
                         }}
-                        ref={anchorRef}
                         aria-controls={open ? 'menu-list-grow' : undefined}
                         aria-haspopup="true"
                         color="inherit"
@@ -127,7 +131,7 @@ const ProfileSection = () => {
                 }
                 label={<IconSettings stroke={1.5} size="1.5rem" color={theme.palette.primary.main} />}
                 variant="outlined"
-                ref={anchorRef}
+                ref={setAnchor}
                 aria-controls={open ? 'menu-list-grow' : undefined}
                 aria-haspopup="true"
                 onClick={handleToggle}
@@ -136,7 +140,7 @@ const ProfileSection = () => {
             <Popper
                 placement="bottom-end"
                 open={open}
-                anchorEl={anchorRef.current}
+                anchorEl={anchorEl}
                 role={undefined}
                 transition
                 disablePortal

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 
 // material-ui
 import { Box } from '@mui/material';
@@ -24,9 +23,5 @@ const AuthCardWrapper = ({ children, ...other }) => (
         <Box sx={{ p: { xs: 2, sm: 3, xl: 5 } }}>{children}</Box>
     </MainCard>
 );
-
-AuthCardWrapper.propTypes = {
-    children: PropTypes.node
-};
 
 export default AuthCardWrapper;

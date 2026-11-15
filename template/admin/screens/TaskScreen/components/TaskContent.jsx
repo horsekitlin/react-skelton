@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import List from "@mui/material/List";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -18,17 +17,13 @@ function CustomTabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3, width: "100%" }}>
-          <Typography>{children}</Typography>
+          <Typography component="div">{children}</Typography>
         </Box>
       )}
     </div>
   );
 }
 
-CustomTabPanel.propTypes = {
-    index: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-  };
   
 const TaskContent = (props) => {
     const {
