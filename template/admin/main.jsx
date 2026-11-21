@@ -4,8 +4,11 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import store, { persistor } from "store/configureStore";
+import { setupInterceptors } from "apis/interceptors";
 import "./index.css";
 import App from "./App";
+
+setupInterceptors(store.dispatch);
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
