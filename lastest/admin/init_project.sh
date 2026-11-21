@@ -28,8 +28,14 @@ echo "copy github action"
 cp -a template/.github .
 
 echo "copy envfile"
-cp -a template/admin/.env .
+cp -a template/admin/.env.example .env
 cp -a template/admin/.env.example .
+echo "請編輯 .env 並填入實際的環境變數值"
+
+echo "確保 .gitignore 排除 .env"
+if ! grep -qx ".env" .gitignore 2>/dev/null; then
+  echo ".env" >> .gitignore
+fi
 
 rm -rf template lastest README.md
 
