@@ -2,27 +2,39 @@ name: test-and-deploy-to-dev
 
 on:
   pull_request:
-    types: 
+    types:
       - closed
     branches:
       - develop
+
+permissions:
+  contents: read
 
 jobs:
   do-deployment:
     if: github.event.pull_request.merged == true
     runs-on: self-hosted
+    timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: 22
       - name: Install Packages
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: create env file
-        run: echo "${{ secrets.DEV_ENV }}" > ./.env
+        run: printf '%s' "$DEV_ENV" > ./.env
+        env:
+          DEV_ENV: ${{ secrets.DEV_ENV }}
       - name: build web app
         run: yarn build
       - name: ssh and copy file to server
-        run: scp -r ./dist/** ${{ secrets.DEV_USER_NAME }}@${{ secrets.DEV_HOST }}:${{ secrets.TARGET }}
+        run: |
+          scp -o StrictHostKeyChecking=yes -r ./dist/** \
+            "$DEV_USER_NAME@$DEV_HOST:$TARGET"
+        env:
+          DEV_USER_NAME: ${{ secrets.DEV_USER_NAME }}
+          DEV_HOST: ${{ secrets.DEV_HOST }}
+          TARGET: ${{ secrets.TARGET }}
