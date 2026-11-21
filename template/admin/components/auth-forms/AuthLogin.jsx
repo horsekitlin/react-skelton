@@ -49,8 +49,10 @@ const FirebaseLogin = ({ handleSignIn, ...others }) => {
                     submit: null
                 }}
                 validationSchema={Yup.object().shape({
-                    phone: Yup.string(),
-                    password: Yup.string().max(255).required('Password is required')
+                    phone: Yup.string()
+                        .matches(/^\d{8,20}$/, '請輸入有效的手機號碼（8-20 位數字）')
+                        .required('手機號碼為必填'),
+                    password: Yup.string().max(255).required('密碼為必填')
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
@@ -71,9 +73,10 @@ const FirebaseLogin = ({ handleSignIn, ...others }) => {
             >
                 {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
                     <form noValidate onSubmit={handleSubmit} {...others}>
-                        <FormControl fullWidth error={Boolean(touched.email && errors.email)} sx={{ ...theme.typography.customInput }}>
-                            <InputLabel htmlFor="outlined-adornment-email-login">Phone</InputLabel>
+                        <FormControl fullWidth error={Boolean(touched.phone && errors.phone)} sx={{ ...theme.typography.customInput }}>
+                            <InputLabel htmlFor="outlined-adornment-phone-login">Phone</InputLabel>
                             <OutlinedInput
+                                id="outlined-adornment-phone-login"
                                 value={values.phone}
                                 name="phone"
                                 onBlur={handleBlur}
@@ -81,9 +84,9 @@ const FirebaseLogin = ({ handleSignIn, ...others }) => {
                                 label="Phone"
                                 inputProps={{}}
                             />
-                            {touched.email && errors.email && (
-                                <FormHelperText error id="standard-weight-helper-text-email-login">
-                                    {errors.email}
+                            {touched.phone && errors.phone && (
+                                <FormHelperText error id="standard-weight-helper-text-phone-login">
+                                    {errors.phone}
                                 </FormHelperText>
                             )}
                         </FormControl>
