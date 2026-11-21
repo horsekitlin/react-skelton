@@ -12,7 +12,8 @@ import {
 const persistConfig = {
   storage,
   key: '!&@#$%^drcleaneradmin',
-  blacklist: ['fetching'],
+  // auth 含 token 敏感資訊，不持久化至 localStorage，session 關閉後需重新登入
+  blacklist: ['fetching', 'auth'],
 };
 
 const configureStore = () => {
