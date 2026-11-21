@@ -1,6 +1,7 @@
 import {put, call, select} from 'redux-saga/effects';
 import types from 'constants/actionTypes';
 import {createTaskResult, deleteTaskResult, getTasksResult} from 'apis/tasks';
+import {getSagaErrorMessage} from './sagaErrorHandler';
 
 const okCreateTask = (payload) => {
   return {
@@ -29,7 +30,7 @@ export function* createTasksSaga({payload: {onSuccess, ...payload}}) {
     yield put(okCreateTask(response));
     onSuccess();
   } catch (error) {
-    yield put(errCreateTask(error.response.data.message));
+    yield put(errCreateTask(getSagaErrorMessage(error)));
   }
 }
 
@@ -60,7 +61,7 @@ export function* deleteTasksSaga({payload: {onSuccess, ...payload}}) {
     yield put(okDeleteTask(response));
     onSuccess();
   } catch (error) {
-    yield put(errDeleteTask(error.response.data.message));
+    yield put(errDeleteTask(getSagaErrorMessage(error)));
   }
 }
 
@@ -90,6 +91,6 @@ export function* getTasksSaga({payload}) {
     });
     yield put(okGetTasks(response));
   } catch (error) {
-    yield put(errGetTasks(error.response.data.message));
+    yield put(errGetTasks(getSagaErrorMessage(error)));
   }
 }
