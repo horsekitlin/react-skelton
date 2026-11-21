@@ -1,6 +1,7 @@
 import {put, call} from 'redux-saga/effects';
 import types from 'constants/actionTypes';
 import {loginResult} from 'apis/auth';
+import {getSagaErrorMessage} from './sagaErrorHandler';
 
 const okSignIn = (data) => {
   return {
@@ -27,6 +28,6 @@ export function* signInSaga({payload = {}}) {
     const response = yield call(loginResult, payload);
     yield put(okSignIn(response.data));
   } catch (error) {
-    yield put(errSignIn(error.response.data.message));
+    yield put(errSignIn(getSagaErrorMessage(error)));
   }
 }

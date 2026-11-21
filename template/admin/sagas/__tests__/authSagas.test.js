@@ -22,8 +22,8 @@ describe('signInSaga', () => {
       .isDone();
   });
 
-  it('should put SIGN_IN_ERROR with the api error message when api fails', () => {
-    const error = { response: { data: { message: 'invalid password' } } };
+  it('should put SIGN_IN_ERROR with mapped error message when api returns 401', () => {
+    const error = { response: { status: 401, data: { message: 'invalid password' } } };
 
     testSaga(signInSaga, action)
       .next()
@@ -31,7 +31,22 @@ describe('signInSaga', () => {
       .throw(error)
       .put({
         type: types.SIGN_IN_ERROR,
-        payload: { isAuth: false, message: 'invalid password' },
+        payload: { isAuth: false, message: '帳號或密碼錯誤' },
+      })
+      .next()
+      .isDone();
+  });
+
+  it('should put SIGN_IN_ERROR with network error message when no response', () => {
+    const error = {};
+
+    testSaga(signInSaga, action)
+      .next()
+      .call(loginResult, payload)
+      .throw(error)
+      .put({
+        type: types.SIGN_IN_ERROR,
+        payload: { isAuth: false, message: '網路連線失敗，請確認網路狀態後再試' },
       })
       .next()
       .isDone();
