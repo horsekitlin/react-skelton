@@ -60,7 +60,6 @@ const FirebaseLogin = ({ handleSignIn, ...others }) => {
                             setSubmitting(false);
                         }
                     } catch (err) {
-                        console.error(err);
                         if (scriptedRef.current) {
                             setStatus({ success: false });
                             setErrors({ submit: err.message });
