@@ -1,5 +1,5 @@
 import types from "constants/actionTypes";
-import { takeLatest } from 'redux-saga/effects';
+import { takeLatest, takeEvery } from 'redux-saga/effects';
 import { signInSaga } from "./authSagas";
 import { createTasksSaga, deleteTasksSaga, getTasksSaga } from "./taskSagas";
 
@@ -13,9 +13,9 @@ export function* watchGetTasksSaga() {
 }
 
 export function* watchCreateTaskSaga() {
-  yield takeLatest(types.CREATE_TASK, createTasksSaga);
+  yield takeEvery(types.CREATE_TASK, createTasksSaga);
 }
 
 export function* watchDeleteTaskSaga() {
-  yield takeLatest(types.DELETE_TASK, deleteTasksSaga);
+  yield takeEvery(types.DELETE_TASK, deleteTasksSaga);
 }
