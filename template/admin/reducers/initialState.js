@@ -1,5 +1,7 @@
 const authState = {
   isAuth: false,
+  token: '',
+  user: {},
 };
 
 const customizationState = {
