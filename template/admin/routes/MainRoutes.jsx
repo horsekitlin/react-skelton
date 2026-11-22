@@ -49,12 +49,7 @@ const MainRoutes = {
                 {
                     path: 'util-typography',
                     element: <ProtectedRoute><UtilsTypography /></ProtectedRoute>
-                }
-            ]
-        },
-        {
-            path: 'utils',
-            children: [
+                },
                 {
                     path: 'util-color',
                     element: <ProtectedRoute><UtilsColor /></ProtectedRoute>
