@@ -79,7 +79,7 @@ const LoginScreen = (props) => {
                     >
                       <Typography
                         component={Link}
-                        to="/pages/register/register3"
+                        to="/register"
                         variant="subtitle1"
                         sx={{ textDecoration: "none" }}
                       >
