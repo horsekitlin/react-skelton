@@ -3,7 +3,9 @@ import initialState from "./initialState";
 
 const loginSuccess = (auth, payload) => ({
   ...auth,
-  ...payload
+  isAuth: payload.isAuth,
+  token: payload.token ?? '',
+  user: payload.user ?? {},
 });
 
 export default function reducer(
